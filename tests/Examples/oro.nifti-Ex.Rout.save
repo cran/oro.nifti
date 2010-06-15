@@ -1,6 +1,6 @@
 
-R version 2.10.1 (2009-12-14)
-Copyright (C) 2009 The R Foundation for Statistical Computing
+R version 2.11.1 (2010-05-31)
+Copyright (C) 2010 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -23,7 +23,7 @@ Type 'q()' to quit R.
 > library('oro.nifti')
 Loading required package: XML
 
-oro.nifti: Rigorous - NIfTI Input / Output (version = 0.1.3)
+oro.nifti: Rigorous - NIfTI Input / Output (version = 0.2.0)
 
 > 
 > assign(".oldSearch", search(), pos = 'CheckExEnv')
@@ -41,7 +41,7 @@ oro.nifti: Rigorous - NIfTI Input / Output (version = 0.1.3)
 > ### ** Examples
 > 
 > showClass("anlz")
-Class “anlz” [package "oro.nifti"]
+Class "anlz" [package "oro.nifti"]
 
 Slots:
                                                                             
@@ -319,7 +319,7 @@ ANALYZE 7.5 format
 [1] "FSL3.2beta"
 > descrip(mniLR) <- paste(descrip(mniLR), version$version.string, sep="; ")
 > descrip(mniLR)
-[1] "FSL3.2beta; R version 2.10.1 (2009-12-14)"
+[1] "FSL3.2beta; R version 2.11.1 (2010-05-31)"
 > 
 > 
 > 
@@ -345,6 +345,9 @@ Loading required package: splines
 > 
 > 
 > cleanEx()
+
+detaching ‘package:splines’
+
 > nameEx("nifti-class")
 > ### * nifti-class
 > 
@@ -358,7 +361,7 @@ Loading required package: splines
 > ### ** Examples
 > 
 > showClass("nifti")
-Class “nifti” [package "oro.nifti"]
+Class "nifti" [package "oro.nifti"]
 
 Slots:
                                                                   
@@ -456,6 +459,9 @@ NIfTI-1 format
 > 
 > 
 > cleanEx()
+
+detaching ‘package:bitops’
+
 > nameEx("niftiAuditTrail-class")
 > ### * niftiAuditTrail-class
 > 
@@ -469,7 +475,7 @@ NIfTI-1 format
 > ### ** Examples
 > 
 > showClass("niftiAuditTrail")
-Class “niftiAuditTrail” [package "oro.nifti"]
+Class "niftiAuditTrail" [package "oro.nifti"]
 
 Slots:
                                                                       
@@ -534,7 +540,7 @@ Class "vector", by class "niftiExtension", distance 7, with explicit test and co
 > ### ** Examples
 > 
 > showClass("niftiExtension")
-Class “niftiExtension” [package "oro.nifti"]
+Class "niftiExtension" [package "oro.nifti"]
 
 Slots:
                                                                   
@@ -600,7 +606,7 @@ Known Subclasses: "niftiAuditTrail"
 > ### ** Examples
 > 
 > showClass("niftiExtensionSection")
-Class “niftiExtensionSection” [package "oro.nifti"]
+Class "niftiExtensionSection" [package "oro.nifti"]
 
 Slots:
                                     
@@ -645,18 +651,22 @@ Class:   numeric   numeric character
 > 
 > ### ** Examples
 > 
+> ## avg152T1
+> anlz.path <- system.file("anlz", package="oro.nifti")
+> mni152 <- readANALYZE(file.path(anlz.path, "avg152T1"))
+> image(mni152, oma=rep(2,4))
+> orthographic(mni152, oma=rep(2,4))
+> 
 > ## Not run: 
 > ##D ## 27 scans of Colin Holmes (MNI) brain co-registered and averaged
 > ##D URL <- "http://imaging.mrc-cbu.cam.ac.uk/downloads/Colin/colin_1mm.tgz"
-> ##D urlpath <- system.file("anlz", package="oro.nifti")
-> ##D urlfile <- file.path(urlpath, "colin_1mm.tgz")
+> ##D urlfile <- file.path(tempdir(), "colin_1mm.tgz")
 > ##D download.file(URL, dest=urlfile, quiet=TRUE)
-> ##D untar(urlfile, exdir=urlpath)
+> ##D untar(urlfile, exdir=tempdir())
+> ##D colin <- readANALYZE(file.path(tempdir(), "colin_1mm"))
+> ##D image(colin, oma=rep(2,4))
+> ##D orthographic(colin, oma=rep(2,4))
 > ## End(Not run)
-> urlpath <- system.file("anlz", package="oro.nifti")
-> colin <- readANALYZE(file.path(urlpath, "colin_1mm"))
-> image(colin, oma=rep(2,4))
-> orthographic(colin, oma=rep(2,4))
 > 
 > 
 > 
@@ -679,15 +689,32 @@ Class:   numeric   numeric character
 > ##D                      "ffd.nii.gz")
 > ##D download.file(url, urlfile, quiet=TRUE)
 > ## End(Not run)
-> urlfile <- file.path(system.file("nifti", package="oro.nifti"),
-+                      "ffd.nii.gz")
-> ffd <- readNIfTI(urlfile)
+> ## The NIfTI file provided here contains the first 18 volumes (10%)
+> ## of the original data set
+> urlfile <- file.path(system.file("nifti", package="oro.nifti"), "ffd.nii.gz")
+> (ffd <- readNIfTI(urlfile))
+NIfTI-1 format
+  Type            : niftiAuditTrail
+  Data Type       : 4 (INT16)
+  Bits per Pixel  : 16
+  Slice Code      : 0 (Unknown)
+  Intent Code     : 0 (None)
+  Qform Code      : 1 (Scanner_Anat)
+  Sform Code      : 1 (Scanner_Anat)
+  Dimension       : 64 x 64 x 21 x 18
+  Pixel Dimension : 4 x 4 x 6 x 3
+Loading required package: bitops
+  Voxel Units     : mm
+  Time Units      : sec
 > image(ffd, oma=rep(2,4))
 > orthographic(ffd, oma=rep(2,4))
 > 
 > 
 > 
 > cleanEx()
+
+detaching ‘package:bitops’
+
 > nameEx("tim_colors")
 > ### * tim_colors
 > 
@@ -709,6 +736,9 @@ Loading required package: splines
 > 
 > 
 > cleanEx()
+
+detaching ‘package:splines’
+
 > nameEx("write_anlz")
 > ### * write_anlz
 > 
@@ -822,7 +852,7 @@ Loading required package: splines
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  38.281 1.564 41.481 0 0 
+Time elapsed:  5.11 0.12 5.234 0 0 
 > grDevices::dev.off()
 null device 
           1 
