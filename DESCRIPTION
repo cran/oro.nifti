@@ -1,6 +1,6 @@
 Package: oro.nifti
-Version: 0.2.0
-Date: 2010-06-15
+Version: 0.2.1
+Date: 2010-09-01
 Title: Rigorous - NIfTI Input / Output
 Author: Brandon Whitcher, Volker Schmid and Andrew Thornton
 Maintainer: Brandon Whitcher <bjw34032@users.sourceforge.net>
@@ -14,6 +14,6 @@ URL: http://rigorousanalytics.blogspot.com, http://rig.oro.us.com/
 LazyLoad: yes
 LazyData: no
 ZipData: no
-Packaged: 2010-07-06 07:42:32 UTC; brandon
+Packaged: 2010-10-09 17:59:26 UTC; brandon
 Repository: CRAN
-Date/Publication: 2010-07-06 07:53:09
+Date/Publication: 2010-10-09 19:34:45

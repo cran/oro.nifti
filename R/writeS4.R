@@ -37,8 +37,10 @@ writeNIfTI <- function(nim, filename, gzipped=TRUE, verbose=FALSE, warn=-1) {
   oldwarn <- options()$warn
   options(warn=warn)
   ## Basic error checking
-  if (!validObject(nim))
+  validNIfTI <- getValidity(getClassDef("nifti"))
+  if (! validNIfTI(nim)) {
     stop("-- aborting writeNIfTI --")
+  }
   ## Write header file...
   if (gzipped) {
     fid <- gzfile(paste(filename, "nii.gz", sep="."), "wb")
@@ -48,11 +50,15 @@ writeNIfTI <- function(nim, filename, gzipped=TRUE, verbose=FALSE, warn=-1) {
 
   extensions <- NULL
   if (is(nim, "niftiExtension")) {
-    if (verbose) { cat("  niftiExtension detected!", fill=TRUE) }
+    if (verbose) {
+      cat("  niftiExtension detected!", fill=TRUE)
+    }
     extensions <- nim@extensions
   }
   if (getOption("niftiAuditTrail") && is(nim, "niftiAuditTrail")) {
-    if (verbose) { cat("  niftiAuditTrail detected!", fill=TRUE) }
+    if (verbose) {
+      cat("  niftiAuditTrail detected!", fill=TRUE)
+    }
     sec <- niftiAuditTrailToExtension(nim, getwd(), filename, match.call())
     extensions <- append(extensions, sec)
   }
@@ -61,7 +67,9 @@ writeNIfTI <- function(nim, filename, gzipped=TRUE, verbose=FALSE, warn=-1) {
     totalesizes <- sum(unlist(lapply(extensions, function(x) x@"esize")))
     nim@"extender"[1] <- 1
     nim@"vox_offset" <- 352 + totalesizes
-    if (verbose) { cat("  vox_offset =", nim@"vox_offset", fill=TRUE) }
+    if (verbose) {
+      cat("  vox_offset =", nim@"vox_offset", fill=TRUE)
+    }
   }
 
   writeBin(as.integer(nim@"sizeof_hdr"), fid, size=4)
@@ -139,8 +147,9 @@ writeNIfTI <- function(nim, filename, gzipped=TRUE, verbose=FALSE, warn=-1) {
     data <- as.vector(nim@.Data)
   }
   ## Write image file...
-  if (verbose)
+  if (verbose) {
     cat("  writing data at byte =", seek(fid), fill=TRUE)
+  }
   switch(as.character(nim@"datatype"),
          "2" = writeBin(as.integer(data), fid, size=nim@"bitpix"/8),
          "4" = writeBin(as.integer(data), fid, size=nim@"bitpix"/8),
@@ -165,13 +174,16 @@ writeANALYZE <- function(aim, filename, gzipped=TRUE, verbose=FALSE,
   oldwarn <- options()$warn
   options(warn=warn)
   ## Basic error checking
-  if (!validObject(aim))
+  validANALYZE <- getValidity(getClassDef("anlz"))
+  if (! validANALYZE(aim)) {
     stop("Ouch!")
+  }
   ## Write header file...
-  if (gzipped)
+  if (gzipped) {
     fid <- gzfile(paste(filename, ".hdr.gz", sep=""), "wb")
-  else
+  } else {
     fid <- file(paste(filename, ".hdr", sep=""), "wb")
+  }
   
   writeBin(as.integer(aim@"sizeof_hdr"), fid, size=4)
   writeChar(aim@"db_type", fid, nchar=10, eos=NULL)
@@ -224,8 +236,9 @@ writeANALYZE <- function(aim, filename, gzipped=TRUE, verbose=FALSE,
     fid <- file(paste(filename, "img", sep="."), "wb")
   }
   dims <- 2:(1+aim@"dim_"[1])
-  if (verbose)
+  if (verbose) {
     cat("  dims =", aim@"dim_"[dims], fill=TRUE)
+  }
   ## writeBin(as.vector(aim), fid, , size=aim@"bitpix"/8)
   data <- as.vector(aim@.Data)
   switch(as.character(aim@"datatype"),
@@ -237,5 +250,7 @@ writeANALYZE <- function(aim, filename, gzipped=TRUE, verbose=FALSE,
          "64" = writeBin(as.double(data), fid, size=aim@"bitpix"/8))
     
   close(fid)
+  ## Warnings?
+  options(warn=oldwarn)
   invisible()
 }
