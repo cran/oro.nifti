@@ -1,6 +1,6 @@
+#
 ##
-##
-## Copyright (c) 2009, Brandon Whitcher and Volker Schmid
+## Copyright (c) 2009,2010 Brandon Whitcher and Volker Schmid
 ## All rights reserved.
 ## 
 ## Redistribution and use in source and binary forms, with or without
@@ -43,7 +43,7 @@ setClass("nifti",
                         "extents"="numeric",
                         "session_error"="numeric",
                         "regular"="character",
-                        "dim_info"="numeric",
+                        "dim_info"="character",
                         "dim_"="vector",
                         "intent_p1"="numeric",
                         "intent_p2"="numeric",
@@ -57,8 +57,8 @@ setClass("nifti",
                         "scl_slope"="numeric",
                         "scl_inter"="numeric",
                         "slice_end"="numeric",
-                        "slice_code"="numeric",
-                        "xyzt_units"="numeric",
+                        "slice_code"="numeric", # character?
+                        "xyzt_units"="numeric", # character?
                         "cal_max"="numeric",
                         "cal_min"="numeric",
                         "slice_duration"="numeric",
@@ -88,7 +88,7 @@ setClass("nifti",
                    "extents"=numeric(1),
                    "session_error"=numeric(1),
                    "regular"="",
-                   "dim_info"=numeric(1),
+                   "dim_info"="",
                    "dim_"=numeric(8),
                    "intent_p1"=numeric(1),
                    "intent_p2"=numeric(1),
@@ -310,14 +310,15 @@ setValidity("niftiExtensionSection", function(object) {
 ## nifti()
 #############################################################################
 
-nifti <- function(img=array(0, dim=rep(1,4)), dim, datatype=2, cal.min=NULL,
-                  cal.max=NULL, pixdim=NULL, ...) {
+nifti <- function(img=array(0, dim=rep(1,4)), dim, datatype=2,
+                  cal.min=NULL, cal.max=NULL, pixdim=NULL, ...) {
   ## Set dimensions
   if (missing(dim)) {
-    if (is.array(img))
+    if (is.array(img)) {
       dim <- base::dim(img)
-    else
+    } else {
       dim <- c(1, length(img))
+    }
   }
   ld <- length(dim)
   ## if (ld < 3) {

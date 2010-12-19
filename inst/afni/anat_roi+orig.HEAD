@@ -1,0 +1,113 @@
+
+type = string-attribute
+name = HISTORY_NOTE
+count = 348
+'[rickr@gimli.nimh.nih.gov: Wed Jun  9 11:54:12 2004] to3d -prefix anat I.001 I.002 I.003 ... I.123 I.124\n[rickr@gimli.nimh.nih.gov: Thu Jun 10 13:57:36 2004] AFNI: markers were edited\n[christip@varda: Wed Mar  1 11:01:28 2006] Drawing plugin COPY: Fill->Zero Type->Func\n[christip@varda: Wed Mar  1 11:07:01 2006] Drawing plugin COPY: Fill->Data~
+
+type = string-attribute
+name = TYPESTRING
+count = 15
+'3DIM_HEAD_FUNC~
+
+type = string-attribute
+name = IDCODE_STRING
+count = 27
+'XYZ_betrrAZDFLeVw9DMY-FY6w~
+
+type = string-attribute
+name = IDCODE_DATE
+count = 25
+'Wed Mar  1 11:07:01 2006~
+
+type = integer-attribute
+name = SCENE_DATA
+count = 8
+ 0 0 1 -999 -999
+ -999 -999 -999
+
+type = string-attribute
+name = LABEL_1
+count = 11
+'CCOPY_anat~
+
+type = string-attribute
+name = LABEL_2
+count = 5
+'zyxt~
+
+type = string-attribute
+name = DATASET_NAME
+count = 5
+'zyxt~
+
+type = integer-attribute
+name = ORIENT_SPECIFIC
+count = 3
+ 3 5 1
+
+type  = float-attribute
+name  = ORIGIN
+count = 3
+      -119.5312       119.5312             70
+
+type  = float-attribute
+name  = DELTA
+count = 3
+         0.9375        -0.9375           -1.2
+
+type  = float-attribute
+name  = IJK_TO_DICOM
+count = 12
+              0              0           -1.2             70         0.9375
+              0              0      -119.5312              0        -0.9375
+              0       119.5312
+
+type  = float-attribute
+name  = BRICK_STATS
+count = 2
+              0              1
+
+type = integer-attribute
+name = DATASET_RANK
+count = 8
+ 3 1 0 0 0
+ 0 0 0
+
+type = integer-attribute
+name = DATASET_DIMENSIONS
+count = 5
+ 256 256 124 0 0
+
+type = integer-attribute
+name = BRICK_TYPES
+count = 1
+ 1
+
+type  = float-attribute
+name  = BRICK_FLOAT_FACS
+count = 1
+              0
+
+type = string-attribute
+name = BRICK_LABS
+count = 3
+'#0~
+
+type = string-attribute
+name = BRICK_KEYWORDS
+count = 1
+'~
+
+type = string-attribute
+name = BYTEORDER_STRING
+count = 10
+'LSB_FIRST~
+
+type = string-attribute
+name = VALUE_LABEL_DTABLE
+count = 99
+'<VALUE_LABEL_DTABLE
+  ni_type="2*String"
+  ni_dimen="1" >
+ "1" "culmen area"
+</VALUE_LABEL_DTABLE>~

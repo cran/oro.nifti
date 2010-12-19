@@ -3,7 +3,10 @@
 %
 % $Id: $
 
-\name{writeANALYZE}
+\name{writeANALYZE-methods}
+\docType{methods}
+\alias{writeANALYZE-methods}
+\alias{writeANALYZE,anlz-method}
 \alias{writeANALYZE}
 \title{writeANALYZE}
 \description{
@@ -11,10 +14,11 @@
   Analyze format.
 }
 \usage{
-writeANALYZE(aim, filename, gzipped = TRUE, verbose = FALSE, warn = -1)
+\S4method{writeANALYZE}{anlz}(aim, filename, gzipped = TRUE, verbose = FALSE,
+            warn = -1)
 }
 \arguments{
-    \item{aim}{is an object of class \code{anlz}.}
+  \item{aim}{is an object of class \code{anlz}.}
   \item{filename}{is the path and file name to save the Analyze file
     pair (.hdr,img) \bold{without} the suffixes.}
   \item{gzipped}{is a character string that enables exportation of
@@ -23,7 +27,11 @@ writeANALYZE(aim, filename, gzipped = TRUE, verbose = FALSE, warn = -1)
     allows text-based feedback during execution of the function.}
   \item{warn}{is a number to regulate the display of warnings (default =
     -1).  See \code{\link{options}} for more details.}
-
+}
+\section{Methods}{
+  \describe{
+  \item{object = "anlz"}{Write ANALYZE volume to disk.}
+  }
 }
 \details{
   The \code{writeANALYZE} function utilizes the internal \code{writeBin}
@@ -37,7 +45,7 @@ writeANALYZE(aim, filename, gzipped = TRUE, verbose = FALSE, warn = -1)
   \url{http://www.mayo.edu/bir/PDF/ANALYZE75.pdf}
 }
 \seealso{
-  \code{\link{writeNIfTI}}
+  \code{\link{writeAFNI}}, \code{\link{writeNIfTI}}
 }
 \examples{
 norm <- dnorm(seq(-5, 5, length=32), sd=2)
@@ -73,6 +81,7 @@ unlist(equal)
 }
 }
 \author{
-  Brandon Whitcher <\email{bjw34032@users.sourceforge.net}>
+  Brandon Whitcher \email{bjw34032@users.sourceforge.net}
 }
 \keyword{file}
+\keyword{methods}
