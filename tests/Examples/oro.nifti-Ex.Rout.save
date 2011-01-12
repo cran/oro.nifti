@@ -1,5 +1,5 @@
 
-R version 2.12.0 (2010-10-15)
+R version 2.12.1 (2010-12-16)
 Copyright (C) 2010 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: x86_64-unknown-linux-gnu (64-bit)
@@ -25,7 +25,7 @@ Type 'q()' to quit R.
 Creating a new generic function for "image" in "oro.nifti"
 Loading required package: XML
 
-oro.nifti: Rigorous - NIfTI+ANALYZE+AFNI Input / Output (version = 0.2.4)
+oro.nifti: Rigorous - NIfTI+ANALYZE+AFNI Input / Output (version = 0.2.5)
 
 > 
 > assign(".oldSearch", search(), pos = 'CheckExEnv')
@@ -446,7 +446,7 @@ ANALYZE 7.5 format
 [1] "FSL3.2beta"
 > descrip(mniLR) <- paste(descrip(mniLR), version$version.string, sep="; ")
 > descrip(mniLR)
-[1] "FSL3.2beta; R version 2.12.0 (2010-10-15)"
+[1] "FSL3.2beta; R version 2.12.1 (2010-12-16)"
 > 
 > 
 > 
@@ -761,6 +761,28 @@ Class:   numeric   numeric character
 > 
 > 
 > cleanEx()
+> nameEx("read_afni")
+> ### * read_afni
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: readAFNI
+> ### Title: readAFNI
+> ### Aliases: readAFNI
+> ### Keywords: file methods
+> 
+> ### ** Examples
+> 
+> ## Taken from the AFNI Matlab Library
+> ## http://afni.nimh.nih.gov/pub/dist/data/afni_matlab_data.tgz
+> afni.path <- system.file("afni", package="oro.nifti")
+> orig <- readAFNI(file.path(afni.path, "ARzs_CW_avvr.DEL+orig"))
+> image(orig, zlim=c(0.5,256), oma=rep(2,4))
+> orthographic(orig, zlim=c(0.5,256), oma=rep(2,4))
+> 
+> 
+> 
+> cleanEx()
 > nameEx("read_anlz")
 > ### * read_anlz
 > 
@@ -898,6 +920,38 @@ QForm_code = 1 : Orientation by Method 2.
 > 
 > 
 > cleanEx()
+> nameEx("write_afni")
+> ### * write_afni
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: writeAFNI-methods
+> ### Title: writeAFNI
+> ### Aliases: writeAFNI-methods writeAFNI,afni-method writeAFNI,ANY-method
+> ###   writeAFNI
+> ### Keywords: file methods
+> 
+> ### ** Examples
+> 
+> ## Taken from the AFNI Matlab Library
+> ## http://afni.nimh.nih.gov/pub/dist/data/afni_matlab_data.tgz
+> afni.path <- system.file("afni", package="oro.nifti")
+> orig <- readAFNI(file.path(afni.path, "ARzs_CW_avvr.DEL+orig"))
+> writeAFNI(orig, "test-afni-image", verbose=TRUE)
+> 
+> data <- readAFNI("test-afni-image", verbose=TRUE)
+  fname = test-afni-image
+  files = test-afni-image.HEAD/BRIK
+  endianess = little
+> image(orig, zlim=c(0.5,256), oma=rep(2,4), bg="white")
+> image(data, zlim=c(0.5,256), oma=rep(2,4), bg="white")
+> abs.err <- abs(data - orig)
+> image(as(abs.err, "nifti"), zlim=range(0,1), oma=rep(2,4),
++       bg="white")
+> 
+> 
+> 
+> cleanEx()
 > nameEx("write_anlz")
 > ### * write_anlz
 > 
@@ -958,7 +1012,7 @@ QForm_code = 1 : Orientation by Method 2.
 > ### Name: writeNIfTI-methods
 > ### Title: writeNIfTI
 > ### Aliases: writeNIfTI-methods writeNIfTI,nifti-method
-> ###   writeNIfTI,anlz-method writeNIfTI
+> ###   writeNIfTI,anlz-method writeNIfTI,array-method writeNIfTI
 > ### Keywords: file methods
 > 
 > ### ** Examples
@@ -1013,7 +1067,7 @@ QForm_code = 1 : Orientation by Method 2.
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  6.27 0.19 6.475 0 0 
+Time elapsed:  7.36 0.16 7.653 0 0 
 > grDevices::dev.off()
 null device 
           1 

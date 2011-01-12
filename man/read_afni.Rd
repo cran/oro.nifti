@@ -50,15 +50,12 @@ readAFNI(fname, vol = NULL, verbose = FALSE, warn = -1, call = NULL)
   \code{\link{readANALYZE}}, \code{\link{readNIfTI}}
 }
 \examples{
-\dontrun{
-## 
+## Taken from the AFNI Matlab Library
+## http://afni.nimh.nih.gov/pub/dist/data/afni_matlab_data.tgz
 afni.path <- system.file("afni", package="oro.nifti")
-afni.fname <- "anat_roi+orig"
-afni.brik <- untar(file.path(afni.path, paste(afni.fname, "BRIK.gz", sep=".")))
-func.slim <- readAFNI(afni.fname)
-image(func.slim, zlim=c(0,128), oma=rep(2,4))
-orthographic(func.slim, zlim=c(0,128), oma=rep(2,4))
+orig <- readAFNI(file.path(afni.path, "ARzs_CW_avvr.DEL+orig"))
+image(orig, zlim=c(0.5,256), oma=rep(2,4))
+orthographic(orig, zlim=c(0.5,256), oma=rep(2,4))
 }
-}
-\keyword{ file }
-\keyword{ IO }
+\keyword{file}
+\keyword{methods}
