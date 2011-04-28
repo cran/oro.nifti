@@ -1,6 +1,6 @@
 Package: oro.nifti
-Version: 0.2.5
-Date: 2011-01-12
+Version: 0.2.6
+Date: 2011-04-28
 Title: Rigorous - NIfTI+ANALYZE+AFNI Input / Output
 Author: Brandon Whitcher, Volker Schmid and Andrew Thornton, with
         contributions by Karsten Tabelow
@@ -20,6 +20,6 @@ LazyData: no
 ZipData: no
 Repository: CRAN
 Repository/R-Forge/Project: rigorous
-Repository/R-Forge/Revision: 167
-Date/Publication: 2011-03-09 15:04:19
-Packaged: 2011-01-26 21:56:36 UTC; rforge
+Repository/R-Forge/Revision: 206
+Date/Publication: 2011-06-06 18:06:40
+Packaged: 2011-06-05 21:19:09 UTC; rforge
