@@ -1,6 +1,6 @@
 ##
 ##
-## Copyright (c) 2009, Brandon Whitcher and Volker Schmid
+## Copyright (c) 2009-2011, Brandon Whitcher and Volker Schmid
 ## All rights reserved.
 ## 
 ## Redistribution and use in source and binary forms, with or without
@@ -38,7 +38,7 @@
 
 setClass("anlz",
          representation("sizeof_hdr" = "numeric",
-                        "db_type" = "character",
+                        "data_type" = "character",
                         "db_name" = "character",
                         "extents" = "numeric",
                         "session_error" = "numeric",
@@ -65,7 +65,7 @@ setClass("anlz",
                         "descrip" = "character",
                         "aux_file" = "character",
                         "orient" = "character",
-                        "originator" = "character",
+                        "origin" = "numeric",
                         "generated" = "character",
                         "scannum" = "character",
                         "patient_id" = "character",
@@ -81,7 +81,7 @@ setClass("anlz",
                         "smax" = "numeric",
                         "smin" = "numeric"),
          prototype("sizeof_hdr" = 348,
-                   "db_type" = "",
+                   "data_type" = "",
                    "db_name" = "",
                    "extents" = numeric(1),
                    "session_error" = numeric(1),
@@ -108,7 +108,7 @@ setClass("anlz",
                    "descrip" = "",
                    "aux_file" = "",
                    "orient" = "0",
-                   "originator" = "",
+                   "origin" = numeric(5),
                    "generated" = "",
                    "scannum" = "",
                    "patient_id" = "",
@@ -157,7 +157,7 @@ setValidity("anlz", function(object) {
     retval <- c(retval, "sizeof_hdr != 348")
   }
   ## datatype needed to specify type of image data
-  if (!object@"datatype" %in% c(0,2^(0:7), 255)) {
+  if (!object@"datatype" %in% c(0, 2^(0:7), 255)) {
     retval <- c(retval, "datatype not recognized")
   }
   ## bitpix should correspond correctly to datatype
@@ -190,7 +190,7 @@ setValidity("anlz", function(object) {
 ## anlz()
 #############################################################################
 
-anlz <- function(img=array(0, dim=rep(1,4)), dim, ...) {
+anlz <- function(img=array(0, dim=rep(1,4)), dim, datatype=2, ...) {
   if (missing(dim)) {
     if (is.array(img)) {
       dim <- base::dim(img)
@@ -204,18 +204,31 @@ anlz <- function(img=array(0, dim=rep(1,4)), dim, ...) {
   }
   x <- c(length(dim), dim[1], dim[2], dim[3],
          ifelse(is.na(dim[4]), 1, dim[4]), rep(1,3))
-  y <- c(0.0, rep(1.0,length(dim)), rep(0.0,3))
-  cal.max <- max(img, na.rm=TRUE) # quantile(img, probs=0.95, na.rm=TRUE)
-  cal.min <- min(img, na.rm=TRUE) # quantile(img, probs=0.05, na.rm=TRUE)
+  y <- c(0.0, rep(1.0, length(dim)), rep(0.0, 7 - length(dim)))
+  cal.max <- max(img, na.rm=TRUE)
+  cal.min <- min(img, na.rm=TRUE)
+  ## Set datatype
+  switch(as.character(datatype),
+         "1" = bitpix <- 1,
+         "2" = bitpix <- 8,
+         "4" = bitpix <- 16,
+         "8" = bitpix <- 32,
+         "16" = bitpix <- 32,
+         "32" = bitpix <- 64,
+         "64" = bitpix <- 64,
+         "512" = bitpix <- 16,
+         stop(paste("Data type", datatype, "unsupported."))
+         )
   obj <- new("anlz", .Data=array(img, dim=dim), "dim_"=x, "pixdim"=y,
-             "cal_max"=cal.max, "cal_min"=cal.min, ...)
+             "cal_max"=cal.max, "cal_min"=cal.min, "datatype"=datatype,
+             "bitpix"=bitpix, ...)
   validANALYZE <- getValidity(getClassDef("anlz"))
   validANALYZE(obj)
   return(obj)
 }
 
 #############################################################################
-## anlz()
+## is.anlz()
 #############################################################################
 
 is.anlz <- function(x) {
@@ -237,10 +250,10 @@ if (!isGeneric("descrip")) {
     setGeneric("descrip", function(object) { standardGeneric("descrip") })
   }
 }
-setMethod("descrip", "anlz", function(object) { object@descrip })
+setMethod("descrip", "anlz", function(object) { object@"descrip" })
 setGeneric("descrip<-", function(x, value) { standardGeneric("descrip<-") })
 setReplaceMethod("descrip", "anlz",
-                 function(x, value) { x@descrip <- value ; x })
+                 function(x, value) { x@"descrip" <- value ; x })
 
 #############################################################################
 ## aux.file() and aux.file<-()
@@ -253,7 +266,23 @@ if (!isGeneric("aux.file")) {
     setGeneric("aux.file", function(object) { standardGeneric("aux.file") })
   }
 }
-setMethod("aux.file", "anlz", function(object) { object@aux_file })
+setMethod("aux.file", "anlz", function(object) { object@"aux_file" })
 setGeneric("aux.file<-", function(x, value) { standardGeneric("aux.file<-") })
 setReplaceMethod("aux.file", "anlz",
                  function(x, value) { x@"aux_file" <- value ; x })
+
+############################################################################
+## as("array", "anlz")
+############################################################################
+
+setAs("array", "anlz",
+      function(from) { as.anlz(from) },
+      function(from, value) { as.anlz(from, value) } )
+
+############################################################################
+## as("list", "anlz")
+############################################################################
+
+setAs("list", "anlz",
+      function(from) { as.anlz(from) },
+      function(from, value) { as.anlz(from, value) } )

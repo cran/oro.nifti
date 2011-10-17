@@ -1,6 +1,6 @@
 ##
 ##
-## Copyright (c) 2009,2010 Brandon Whitcher and Volker Schmid
+## Copyright (c) 2009-2011 Brandon Whitcher and Volker Schmid
 ## All rights reserved.
 ## 
 ## Redistribution and use in source and binary forms, with or without
@@ -332,6 +332,7 @@ as.nifti <- function(from, value=NULL, verbose=FALSE) {
       if (length(nim@"dim_") < 8) {
         nim@"dim_" <- c(nim@"dim_", rep(1, 8 - length(nim@"dim_")))
       }
+      
       nim@.Data <- from
       if (getOption("niftiAuditTrail") && is(nim, "niftiAuditTrail")) {
         audit.trail(nim) <-

@@ -22,10 +22,9 @@ Type 'q()' to quit R.
 > source(file.path(R.home("share"), "R", "examples-header.R"))
 > options(warn = 1)
 > library('oro.nifti')
-Creating a new generic function for "image" in "oro.nifti"
 Loading required package: XML
 
-oro.nifti: Rigorous - NIfTI+ANALYZE+AFNI Input / Output (version = 0.2.6)
+oro.nifti: Rigorous - NIfTI+ANALYZE+AFNI Input / Output (version = 0.2.7)
 
 > 
 > assign(".oldSearch", search(), pos = 'CheckExEnv')
@@ -155,7 +154,7 @@ Class "anlz" [package "oro.nifti"]
 
 Slots:
                                                                             
-Name:          .Data    sizeof_hdr       db_type       db_name       extents
+Name:          .Data    sizeof_hdr     data_type       db_name       extents
 Class:         array       numeric     character     character       numeric
                                                                             
 Name:  session_error       regular      hkey_un0          dim_     vox_units
@@ -170,8 +169,8 @@ Class:        vector       numeric       numeric       numeric       numeric
 Name:        cal_max       cal_min    compressed      verified         glmax
 Class:       numeric       numeric       numeric       numeric       numeric
                                                                             
-Name:          glmin       descrip      aux_file        orient    originator
-Class:       numeric     character     character     character     character
+Name:          glmin       descrip      aux_file        orient        origin
+Class:       numeric     character     character     character       numeric
                                                                             
 Name:      generated       scannum    patient_id      exp_date      exp_time
 Class:     character     character     character     character     character
@@ -354,7 +353,7 @@ ANALYZE 7.5 format
 > 
 > ### Name: Convert ANALYZE Codes
 > ### Title: Convert NIfTI Codes
-> ### Aliases: convert.datatype.anlz convert.orient.anlz
+> ### Aliases: convert.bitpix.anlz convert.datatype.anlz convert.orient.anlz
 > 
 > ### ** Examples
 > 
@@ -774,7 +773,7 @@ Class:   numeric   numeric character
 > 
 > ### Name: quaternion2rotation
 > ### Title: Convert Quaternion into a Rotation Matrix
-> ### Aliases: quaternion2rotation
+> ### Aliases: quaternion2rotation quaternion2mat44
 > 
 > ### ** Examples
 > 
@@ -785,6 +784,37 @@ Class:   numeric   numeric character
 [1,]    1    0    0
 [2,]    0   -1    0
 [3,]    0    0   -1
+> 
+> 
+> 
+> cleanEx()
+> nameEx("qformsform")
+> ### * qformsform
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: orientation-methods
+> ### Title: Extract NIfTI 3D Image Orientation
+> ### Aliases: qform-methods qform,nifti-method qform sform-methods
+> ###   sform,nifti-method sform
+> ### Keywords: methods
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D url <- "http://nifti.nimh.nih.gov/nifti-1/data/avg152T1_LR_nifti.nii.gz"
+> ##D urlfile <- file.path(system.file("nifti", package="oro.nifti"),
+> ##D                      "mniLR.nii.gz")
+> ##D download.file(url, urlfile, quiet=TRUE)
+> ## End(Not run)
+> urlfile <- file.path(system.file("nifti", package="oro.nifti"),
++                      "mniLR.nii.gz")
+> mniLR <- readNIfTI(urlfile)
+> sform(mniLR)
+     [,1] [,2] [,3] [,4]
+[1,]   -2    0    0   90
+[2,]    0    2    0 -126
+[3,]    0    0    2  -72
 > 
 > 
 > 
@@ -1055,19 +1085,32 @@ QForm_code = 1 : Orientation by Method 2.
 > writeNIfTI(img.nifti, "test-nifti-image-uint8", verbose=TRUE)
   niftiExtension detected!
   niftiAuditTrail detected!
-  vox_offset = 1280
+  vox_offset = 1296
   writing niftiExtension(s) at byte = 352
-  writing data at byte = 1280
+  writing data at byte = 1296
 > ## These files should be viewable in, for example, FSLview
 > ## Make sure you adjust the min/max values for proper visualization
 > data <- readNIfTI("test-nifti-image-uint8", verbose=TRUE)
   fname = test-nifti-image-uint8
   files = test-nifti-image-uint8.nii.gz
   nii   = test-nifti-image-uint8.nii.gz
-  vox_offset = 1280
+  vox_offset = 1296
   niftiExtension detected!
   seek(fid) = 352
-  seek(fid) = 1280
+  seek(fid) = 1296
+ # reorient = Method 1
+ ## performPermutation
+  trans =
+     [,1] [,2] [,3]
+[1,]    1    0    0
+[2,]    0    1    0
+[3,]    0    0    1
+  sum(T != 0) = 3
+       det(T) = 1
+  sum(T != 0) == 3 && det(T) != 0 is TRUE
+ ## else {
+ ## real.dimensions = 32 32 32
+ ## dim(out) = 32 32 32
 > image(img.nifti, oma=rep(2,4), bg="white")
 > image(data, oma=rep(2,4), bg="white")
 > abs.err <- abs(data - img.nifti)
@@ -1095,7 +1138,7 @@ QForm_code = 1 : Orientation by Method 2.
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  10.31 0.15 10.493 0 0 
+Time elapsed:  9.15 0.18 9.369 0 0 
 > grDevices::dev.off()
 null device 
           1 

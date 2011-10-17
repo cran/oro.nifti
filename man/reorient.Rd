@@ -12,8 +12,8 @@
   these transforms are applied.
 }
 \usage{
-reorient(nim, data, verbose=FALSE, invert=FALSE)
-inverseReorient(nim, verbose=FALSE)
+reorient(nim, data, verbose = FALSE, invert = FALSE, tol = 1e-07)
+inverseReorient(nim, verbose = FALSE)
 }
 \arguments{
   \item{nim}{is an object of class \code{nifti}.}
@@ -21,6 +21,8 @@ inverseReorient(nim, verbose=FALSE)
   \item{verbose}{is a logical variable (default = \code{FALSE}) that
     allows text-based feedback during execution of the function.}
   \item{invert}{stores the inverse transform.}
+  \item{tol}{is a very small value used to judge if a number is
+    essentially zero.}
 }
 \details{
   This function utilizes the \code{performPermutation} function
@@ -32,5 +34,6 @@ inverseReorient(nim, verbose=FALSE)
   \code{\link{performPermutation}}
 }
 %\examples{}
-\author{ Andrew Thornton \email{zeripath@users.sourceforge.net} }
+\author{Andrew Thornton \email{zeripath@users.sourceforge.net} and
+  Brandon Whitcher \email{bjw34032@users.sourceforge.net}}
 %\keyword{}
