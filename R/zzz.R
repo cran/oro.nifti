@@ -1,6 +1,5 @@
 ##
-##
-## Copyright (c) 2009, 2010, Brandon Whitcher and Volker Schmid
+## Copyright (c) 2009, 2010, 2011 Brandon Whitcher and Volker Schmid
 ## All rights reserved.
 ##
 ## Redistribution and use in source and binary forms, with or without
@@ -33,7 +32,12 @@
 ##
 
 .onAttach <- function(lib, pkg) {
-  txt <- paste("\n", pkg,": Rigorous - NIfTI+ANALYZE+AFNI Input / Output (version = ", as.character(sessionInfo()$otherPkgs$oro.nifti["Version"]), ")\n", sep="", fill=TRUE)
+  txt <- paste("\n",
+               pkg,
+               ": Rigorous - NIfTI+ANALYZE+AFNI Input / Output (version = ",
+               as.character(sessionInfo()$otherPkgs$oro.nifti["Version"]),
+               ")\n",
+               sep="")
   packageStartupMessage(txt)
 }
 
