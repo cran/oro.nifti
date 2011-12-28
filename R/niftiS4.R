@@ -252,7 +252,7 @@ setValidity("niftiExtension", function(object) {
   validSection <- getValidity(getClassDef("niftiExtensionSection"))
   lapply(object@"extensions",
          function(x) { 
-           if (!is(x, "niftiExtensionSection")) {
+           if (! is(x, "niftiExtensionSection")) {
              retval <<- c(retval, paste("@extensions list contains non-niftiExtensionSection element:", class(x)))
            } else {
              if (! validSection(x)) {

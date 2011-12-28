@@ -1,6 +1,6 @@
 Package: oro.nifti
-Version: 0.2.9
-Date: 2011-12-19
+Version: 0.3.0
+Date: 2011-12-28
 Title: Rigorous - NIfTI+ANALYZE+AFNI Input / Output
 Author: Brandon Whitcher, Volker Schmid and Andrew Thornton, with 
   contributions by Karsten Tabelow
@@ -16,6 +16,6 @@ License: BSD
 URL: http://rigorousanalytics.blogspot.com, http://rig.oro.us.com
 LazyData: yes
 ZipData: no
-Packaged: 2011-12-26 17:11:37 UTC; bwhitcher
+Packaged: 2011-12-28 10:48:39 UTC; bwhitcher
 Repository: CRAN
-Date/Publication: 2011-12-27 21:30:03
+Date/Publication: 2011-12-28 13:50:28
