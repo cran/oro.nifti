@@ -1,5 +1,5 @@
 e907da6d61c57b7b0729ec80c2ef5daa *COPYING
-18cd8463396550ef72cf20efc25b543c *DESCRIPTION
+309cf08c71963f2e6b6d945f39a868d9 *DESCRIPTION
 a9da565da1a2685527bb86e41d992b6b *NAMESPACE
 79391d5b88db531771ab097cf5c75adc *R/afniS4.R
 51b4af8149dd205bd0d47e030a3ef38c *R/analyzeS4.R
@@ -11,7 +11,7 @@ c3f7dff98953781cf2266584b34ffeef *R/hotmetal.R
 865f8e937680fa873dffedc09dc03e4e *R/niftiS4.R
 75d1a47f390306688d9e3c67df77b14f *R/oro2fmri.R
 e49d55c3b3f2d598997fa4c1a09309c3 *R/plot.R
-0a17cdffd70f83336dd59208822b51f1 *R/readS4.R
+737449edb951153230a16297e704af19 *R/readS4.R
 00574a5c7af77e5900b6a5997ad4d2dc *R/remove.R
 0132cd14640a712ed42c36250b07d38c *R/tim_colors.R
 e690a6938befbf4ec6b2228066cdb068 *R/transform.R
@@ -30,8 +30,8 @@ a8f574c3bb7a7b5e429fa5a2eae787f7 *inst/anlz/avg152T1.hdr.gz
 7635bc69cea83299ba42c053b0b06f0c *inst/anlz/avg152T1.img.gz
 e2566a24dcceedb12d798122bd2c9a3e *inst/doc/ANALYZE75.pdf
 81de1810d2ab396a9bfaa245ec105606 *inst/doc/nifti.Rnw
-f10b624da2df9ba00b0c71e97f20c610 *inst/doc/nifti.pdf
-4fe36523b30a1ed5b6acaceaf3b86e74 *inst/doc/oro.nifti.pdf
+ed6dd62de690b9fe8da4e4ae1110a72c *inst/doc/nifti.pdf
+152fb33ed441b1df3086fa7a5d029680 *inst/doc/oro.nifti.pdf
 0d7c61eb4afb2feb83471c340b619a0c *inst/nifti/filtered_func_data.nii.gz
 1048d947cc8b4739e7e217e83fdef18c *inst/nifti/mniLR.nii.gz
 76ef297b8b927471e1dd80b819540e9d *inst/nifti/mniRL.nii.gz
@@ -78,6 +78,6 @@ f938b978ac4768de8a03e8ad515a763d *man/tim_colors.Rd
 71a8b135c768319322652c0619a5dfdf *man/write_afni.Rd
 5e778028144c613672544773dc3b5b95 *man/write_anlz.Rd
 a7b89e058eac6ba25202f4fa9e011581 *man/write_nifti.Rd
-124a0939bf0ab421a34489233bb6b99b *tests/Examples/oro.nifti-Ex.Rout.save
+f06feed7db36f4e4a81ab2092e9328d3 *tests/Examples/oro.nifti-Ex.Rout.save
 81de1810d2ab396a9bfaa245ec105606 *vignettes/nifti.Rnw
 fdfc837b04b3ec7c313449b18d3294ba *vignettes/nifti.bib
