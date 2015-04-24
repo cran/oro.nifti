@@ -124,7 +124,7 @@ audit.trail(mniLR)
 ### code chunk number 18: EBImage01 (eval = FALSE)
 ###################################################
 ## mniLR.range <- range(mniLR)
-## display((mniLR - min(mniLR)) / diff(mniLR.range))
+## EBImage::display((mniLR - min(mniLR)) / diff(mniLR.range))
 
 
 ###################################################

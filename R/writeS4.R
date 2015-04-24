@@ -33,18 +33,100 @@
 ##
 
 setGeneric("writeNIfTI", function(nim,  ...) standardGeneric("writeNIfTI"))
-
+#' @title writeNIfTI
+#' 
+#' @description This function saves a NIfTI-class object to a single binary file in NIfTI
+#' format.
+#' 
+#' @details The \code{writeNIfTI} function utilizes the internal \code{writeBin} and
+#' \code{writeChar} command to write information to a binary file.
+#' 
+#' Current acceptable data types include \describe{ \item{list("UINT8")}{DT
+#' BINARY (1 bit per voxel)} \item{list("INT16")}{DT SIGNED SHORT (16 bits per
+#' voxel)} \item{list("INT32")}{DT SINGED INT (32 bits per voxel)}
+#' \item{list("FLOAT32")}{DT FLOAT (32 bits per voxel)}
+#' \item{list("DOUBLE64")}{DT DOUBLE (64 bits per voxel)}
+#' \item{list("UINT16")}{DT UNSIGNED SHORT (16 bits per voxel)} }
+#' 
+#' @name writeNIfTI-methods
+#' @aliases writeNIfTI writeNIfTI-methods writeNIfTI,nifti-method writeNIfTI,anlz-method
+#' writeNIfTI,array-method
+#' @docType methods
+#' @param nim is an object of class \code{nifti} or \code{anlz}.
+#' @param filename is the path and file name to save the NIfTI file (.nii)
+#' \bold{without} the suffix.
+#' @param onefile is a logical value that allows the scanning of single-file
+#' (.nii) or dual-file format (.hdr and .img) NIfTI files (default =
+#' \code{TRUE}).
+#' @param gzipped is a character string that enables exportation of compressed
+#' (.gz) files (default = \code{TRUE}).
+#' @param verbose is a logical variable (default = \code{FALSE}) that allows
+#' text-based feedback during execution of the function.
+#' @param warn is a number to regulate the display of warnings (default = -1).
+#' See \code{\link{options}} for more details.
+#' @return Nothing.
+#' @section Methods: \describe{ \item{object = "anlz"}{Convert ANALYZE object
+#' to class \code{nifti} and write the NIfTI volume to disk.} \item{object =
+#' "array"}{Convert array to class \code{nifti} and write the NIfTI volume to
+#' disk.} \item{object = "nifti"}{Write NIfTI volume to disk.} }
+#' @author Brandon Whitcher \email{bwhitcher@@gmail.com},\cr Volker Schmid
+#' \email{volkerschmid@@users.sourceforge.net}
+#' @seealso \code{\link{writeAFNI}}, \code{\link{writeANALYZE}}
+#' @references NIfTI-1\cr \url{http://nifti.nimh.nih.gov/}
+#' @import methods
+#' @import utils
+#' @keywords file methods
+#' @examples
+#' 
+#' norm <- dnorm(seq(-5, 5, length=32), sd=2)
+#' norm <- (norm-min(norm)) / max(norm-min(norm))
+#' img <- outer(outer(norm, norm), norm)
+#' img <- round(255 * img)
+#' img[17:32,,] <- 255 - img[17:32,,]
+#' img.nifti <- nifti(img) # create NIfTI object
+#' 
+#' writeNIfTI(img.nifti, "test-nifti-image-uint8", verbose=TRUE)
+#' ## These files should be viewable in, for example, FSLview
+#' ## Make sure you adjust the min/max values for proper visualization
+#' data <- readNIfTI("test-nifti-image-uint8", verbose=TRUE)
+#' image(img.nifti, oma=rep(2,4), bg="white")
+#' image(data, oma=rep(2,4), bg="white")
+#' abs.err <- abs(data - img.nifti)
+#' image(as(abs.err, "nifti"), zlim=range(img.nifti), oma=rep(2,4),
+#'       bg="white")
+#' 
+#' \dontrun{
+#' ## Loop through all possible data types
+#' datatypes <- list(code=c(2, 4, 8, 16, 64),
+#'                   name=c("uint8", "int16", "int32", "float", "double"))
+#' equal <- vector("list")
+#' for (i in 1:length(datatypes$code)) {
+#'   fname <- paste("test-nifti-image-", datatypes$name[i], sep="")
+#'   rm(img.nifti)
+#'   img.nifti <- nifti(img, datatype=datatypes$code[i])
+#'   writeNIfTI(img.nifti, fname, verbose=TRUE)
+#'   equal[[i]] <- all(readNIfTI(fname) == img)
+#' }
+#' names(equal) <- datatypes$name
+#' unlist(equal)
+#' }
+#' @export
+#' @rdname write_nifti
 setMethod("writeNIfTI", signature(nim="nifti"), 
 	  function(nim, filename, onefile=TRUE, gzipped=TRUE, verbose=FALSE,
                    warn=-1) {
             .writeNIfTI(nim, filename, onefile, gzipped, verbose, warn)
           })
+#' @export
+#' @rdname write_nifti
 setMethod("writeNIfTI", signature(nim="anlz"), 
 	  function(nim, filename, onefile=TRUE, gzipped=TRUE, verbose=FALSE,
                    warn=-1) {
             .writeNIfTI(as(nim, "nifti"), filename, onefile, gzipped,
                         verbose, warn)
           })
+#' @export
+#' @rdname write_nifti
 setMethod("writeNIfTI", signature(nim="array"), 
 	  function(nim, filename, onefile=TRUE, gzipped=TRUE, verbose=FALSE,
                    warn=-1) {
@@ -57,6 +139,10 @@ setMethod("writeNIfTI", signature(nim="array"),
   ## Warnings?
   oldwarn <- getOption("warn")
   options(warn=warn)
+  #### added so that range of the data will equal cal.min/cal.max
+  nim <- calibrateImage(nim)
+  ##### Added so that bad dimensions are dropped
+  #   nim = drop_img_dim(nim)
   ## Basic error checking
   validNIfTI <- getValidity(getClassDef("nifti"))
   if (is.character(vnim <- validNIfTI(nim))) {
@@ -68,7 +154,7 @@ setMethod("writeNIfTI", signature(nim="array"),
   } else {
     fid <- file(paste(filename, "nii", sep="."), "wb")
   }
-
+  ## Extensions...
   extensions <- NULL
   if (is(nim, "niftiExtension")) {
     if (verbose) {
@@ -83,7 +169,7 @@ setMethod("writeNIfTI", signature(nim="array"),
     sec <- niftiAuditTrailToExtension(nim, getwd(), filename, match.call())
     extensions <- append(extensions, sec)
   }
-  if (!is.null(extensions)) {
+  if (! is.null(extensions)) {
     ## update the vox_offset  FIXME twofile!
     totalesizes <- sum(unlist(lapply(extensions, function(x) x@"esize")))
     nim@"extender"[1] <- 1
@@ -92,7 +178,7 @@ setMethod("writeNIfTI", signature(nim="array"),
       cat("  vox_offset =", nim@"vox_offset", fill=TRUE)
     }
   }
-
+  ##
   writeBin(as.integer(nim@"sizeof_hdr"), fid, size=4)
   writeChar(nim@"data_type", fid, nchars=10, eos=NULL)
   writeChar(nim@"db_name", fid, nchars=18, eos=NULL)
@@ -101,39 +187,39 @@ setMethod("writeNIfTI", signature(nim="array"),
   writeChar(nim@"regular", fid, nchars=1, eos=NULL)
   writeBin(as.integer(nim@"dim_info"), fid, size=1)
   writeBin(as.integer(nim@"dim_"), fid, size=2)
-  writeBin(nim@"intent_p1", fid, size=4)
-  writeBin(nim@"intent_p2", fid, size=4)
-  writeBin(nim@"intent_p3", fid, size=4)
+  writeBin(as.double(nim@"intent_p1"), fid, size=4)
+  writeBin(as.double(nim@"intent_p2"), fid, size=4)
+  writeBin(as.double(nim@"intent_p3"), fid, size=4)
   writeBin(as.integer(nim@"intent_code"), fid, size=2)
   writeBin(as.integer(nim@"datatype"), fid, size=2)
   writeBin(as.integer(nim@"bitpix"), fid, size=2)
   writeBin(as.integer(nim@"slice_start"), fid, size=2)
-  writeBin(nim@"pixdim", fid, size=4)
-  writeBin(nim@"vox_offset", fid, size=4) # default offset = 352
-  writeBin(nim@"scl_slope", fid, size=4)
-  writeBin(nim@"scl_inter", fid, size=4)
+  writeBin(as.double(nim@"pixdim"), fid, size=4)
+  writeBin(as.double(nim@"vox_offset"), fid, size=4) # default offset = 352
+  writeBin(as.double(nim@"scl_slope"), fid, size=4)
+  writeBin(as.double(nim@"scl_inter"), fid, size=4)
   writeBin(as.integer(nim@"slice_end"), fid, size=2)
   writeBin(as.integer(nim@"slice_code"), fid, size=1)
   writeBin(as.integer(nim@"xyzt_units"), fid, size=1)
-  writeBin(nim@"cal_max", fid, size=4)
-  writeBin(nim@"cal_min", fid, size=4)
-  writeBin(nim@"slice_duration", fid, size=4)
-  writeBin(nim@"toffset", fid, size=4)
+  writeBin(as.double(nim@"cal_max"), fid, size=4)
+  writeBin(as.double(nim@"cal_min"), fid, size=4)
+  writeBin(as.double(nim@"slice_duration"), fid, size=4)
+  writeBin(as.double(nim@"toffset"), fid, size=4)
   writeBin(as.integer(nim@"glmax"), fid, size=4)
   writeBin(as.integer(nim@"glmin"), fid, size=4)
   writeChar(nim@"descrip", fid, nchars=80, eos=NULL)
   writeChar(nim@"aux_file", fid, nchars=24, eos=NULL)
   writeBin(as.integer(nim@"qform_code"), fid, size=2)
   writeBin(as.integer(nim@"sform_code"), fid, size=2)
-  writeBin(nim@"quatern_b", fid, size=4)
-  writeBin(nim@"quatern_c", fid, size=4)
-  writeBin(nim@"quatern_d", fid, size=4)
-  writeBin(nim@"qoffset_x", fid, size=4)
-  writeBin(nim@"qoffset_y", fid, size=4)
-  writeBin(nim@"qoffset_z", fid, size=4)
-  writeBin(nim@"srow_x", fid, size=4)
-  writeBin(nim@"srow_y", fid, size=4)
-  writeBin(nim@"srow_z", fid, size=4)
+  writeBin(as.double(nim@"quatern_b"), fid, size=4)
+  writeBin(as.double(nim@"quatern_c"), fid, size=4)
+  writeBin(as.double(nim@"quatern_d"), fid, size=4)
+  writeBin(as.double(nim@"qoffset_x"), fid, size=4)
+  writeBin(as.double(nim@"qoffset_y"), fid, size=4)
+  writeBin(as.double(nim@"qoffset_z"), fid, size=4)
+  writeBin(as.double(nim@"srow_x"), fid, size=4)
+  writeBin(as.double(nim@"srow_y"), fid, size=4)
+  writeBin(as.double(nim@"srow_z"), fid, size=4)
   writeChar(nim@"intent_name", fid, nchars=16, eos=NULL)
   writeChar(nim@"magic", fid, nchars=4, eos=NULL)
   writeBin(as.integer(nim@"extender"), fid, size=1)
@@ -158,7 +244,7 @@ setMethod("writeNIfTI", signature(nim="array"),
                invisible()
              })
     } else {
-      stop("@extender set but", nim, "has no extensions")
+      stop("@extender set but", nim, "has no extensions.")
     }
   }
   ## reorient?
@@ -188,8 +274,69 @@ setMethod("writeNIfTI", signature(nim="array"),
 ############################################################################
 ############################################################################
 ############################################################################
-
 setGeneric("writeANALYZE", function(aim,  ...) standardGeneric("writeANALYZE"))
+#' @title writeANALYZE
+#' 
+#' @description This function saves an Analyze-class object to a single binary file in
+#' Analyze format.
+#' 
+#' @details The \code{writeANALYZE} function utilizes the internal \code{writeBin} and
+#' \code{writeChar} command to write information to a binary file.
+#' 
+#' @name writeANALYZE-methods
+#' @aliases writeANALYZE writeANALYZE-methods writeANALYZE,anlz-method
+#' @docType methods
+#' @param aim is an object of class \code{anlz}.
+#' @param filename is the path and file name to save the Analyze file pair
+#' (.hdr,img) \bold{without} the suffixes.
+#' @param gzipped is a character string that enables exportation of compressed
+#' (.gz) files (default = \code{TRUE}).
+#' @param verbose is a logical variable (default = \code{FALSE}) that allows
+#' text-based feedback during execution of the function.
+#' @param warn is a number to regulate the display of warnings (default = -1).
+#' See \code{\link{options}} for more details.
+#' @return Nothing.
+#' @section Methods: \describe{ \item{object = "anlz"}{Write ANALYZE volume to
+#' disk.} }
+#' @author Brandon Whitcher \email{bwhitcher@@gmail.com}
+#' @seealso \code{\link{writeAFNI}}, \code{\link{writeNIfTI}}
+#' @references Analyze 7.5\cr \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}
+#' @keywords file methods
+#' @examples
+#' 
+#' norm <- dnorm(seq(-5, 5, length=32), sd=2)
+#' norm <- (norm-min(norm)) / max(norm-min(norm))
+#' img <- outer(outer(norm, norm), norm)
+#' img <- round(255*img)
+#' img[17:32,,] <- 255 - img[17:32,,]
+#' img.anlz <- anlz(img) # create Analyze object
+#' 
+#' writeANALYZE(img.anlz, "test-anlz-image-uint8", verbose=TRUE)
+#' ## These files should be viewable in, for example, FSLview
+#' ## Make sure you adjust the min/max values for proper visualization
+#' data <- readANALYZE("test-anlz-image-uint8", verbose=TRUE)
+#' image(img.anlz, oma=rep(2,4), bg="white")
+#' image(data, oma=rep(2,4), bg="white")
+#' abs.err <- abs(data - img.anlz)
+#' image(as(abs.err, "anlz"), zlim=range(img.anlz), oma=rep(2,4), bg="white")
+#' 
+#' \dontrun{
+#' ## Loop through all possible data types
+#' datatypes <- list(code=c(2, 4, 8, 16, 64),
+#'                   name=c("uint8", "int16", "int32", "float", "double"))
+#' equal <- vector("list")
+#' for (i in 1:length(datatypes$code)) {
+#'   fname <- paste("test-anlz-image-", datatypes$name[i], sep="")
+#'   rm(img.anlz)
+#'   img.anlz <- anlz(img, datatype=datatypes$code[i])
+#'   writeANALYZE(img.anlz, fname)
+#'   equal[[i]] <- all(readANALYZE(fname) == img)
+#' }
+#' names(equal) <- datatypes$name
+#' unlist(equal)
+#' }
+#' @export
+#' @rdname write_anlz 
 setMethod("writeANALYZE", signature(aim="anlz"), 
 	  function(aim, filename, gzipped=TRUE, verbose=FALSE, warn=-1) {
             .writeANALYZE(aim, filename, gzipped, verbose, warn)
@@ -233,8 +380,8 @@ setMethod("writeANALYZE", signature(aim="anlz"),
   writeBin(aim@"funused1", fid, size=4)                # 72 + 4
   writeBin(aim@"funused2", fid, size=4)                # 76 + 4
   writeBin(aim@"funused3", fid, size=4)                # 80 + 4
-  writeBin(as.numeric(aim@"cal_max"), fid, size=4)     # 84 + 4
-  writeBin(as.numeric(aim@"cal_min"), fid, size=4)     # 88 + 4
+  writeBin(as.double(aim@"cal_max"), fid, size=4)     # 84 + 4
+  writeBin(as.double(aim@"cal_min"), fid, size=4)     # 88 + 4
   writeBin(as.integer(aim@"compressed"), fid, size=4)  # 92 + 4
   writeBin(as.integer(aim@"verified"), fid, size=4)    # 96 + 4
   writeBin(as.integer(aim@"glmax"), fid, size=4)       # 100 + 4
@@ -271,7 +418,6 @@ setMethod("writeANALYZE", signature(aim="anlz"),
   if (verbose) {
     cat("  dims =", aim@"dim_"[dims], fill=TRUE)
   }
-  ## writeBin(as.vector(aim), fid, , size=aim@"bitpix"/8)
   data <- as.vector(aim@.Data)
   switch(as.character(aim@"datatype"),
          "1" = writeBin(as.integer(data), fid, size=aim@"bitpix"/8),
