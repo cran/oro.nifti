@@ -1,6 +1,6 @@
 Package: oro.nifti
-Version: 0.5.2
-Date: 2015-04-24
+Version: 0.5.5.2
+Date: 2016-07-22
 Title: Rigorous - NIfTI + ANALYZE + AFNI : Input / Output
 Authors@R: c(person("Brandon", "Whitcher", role = c("aut", "cre"),
   email = "bwhitcher@gmail.com"),
@@ -15,7 +15,8 @@ Description: Functions for the input/output and visualization of
     formats.  This package is part of the Rigorous Analytics bundle.
 Depends: R (>= 2.14.0)
 Suggests: XML, testthat
-Imports: bitops, splines, graphics, grDevices, methods, utils, abind
+Imports: stats, bitops, splines, graphics, grDevices, methods, utils,
+        abind
 Enhances: dcemriS4, fmri, oro.dicom
 License: BSD_3_clause + file LICENSE
 URL: http://rig.oro.us.com, http://rigorousanalytics.blogspot.com
@@ -43,9 +44,10 @@ Collate: 'auditTrail.R' 'niftiS4.R' 'analyzeS4.R' 'afniS4.R' 'is.R'
         'hkey_un0.R' 'omax.R' 'omin.R' 'orient.R' 'origin.R'
         'patient_id.R' 'scannum.R' 'smax.R' 'smin.R' 'start_field.R'
         'unused1.R' 'verified.R' 'views.R' 'vols_added.R' 'vox_units.R'
-        'zzz.R'
+        'voxres.R' 'zzz.R'
+RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2015-05-07 19:52:00 UTC; brandon
+Packaged: 2016-07-22 21:49:08 UTC; brandon
 Author: Brandon Whitcher [aut, cre],
   Volker Schmid [aut],
   Andrew Thornton [aut],
@@ -54,4 +56,4 @@ Author: Brandon Whitcher [aut, cre],
   John Muschelli [ctb]
 Maintainer: Brandon Whitcher <bwhitcher@gmail.com>
 Repository: CRAN
-Date/Publication: 2015-05-07 23:02:13
+Date/Publication: 2016-07-24 01:16:58
