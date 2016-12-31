@@ -1,6 +1,6 @@
-9f3b5e0cc9c5678b208762b54bf652c8 *DESCRIPTION
+e67c7fc12efe75d882f8451f0eca836a *DESCRIPTION
 2523fa317c0d02a14866f358ea8af26f *LICENSE
-427032388225a1372751f4bbcfb5f959 *NAMESPACE
+dc778734cfa6b454e8704c36b5595b15 *NAMESPACE
 cbecc49c69ddfd93e945501829c81a2b *R/Operators.R
 8b307a82448c06322413359dd8ddffc9 *R/afniS4.R
 bd94539d678b4653ebfaf9c8353a9762 *R/analyzeS4.R
@@ -9,7 +9,7 @@ bd94539d678b4653ebfaf9c8353a9762 *R/analyzeS4.R
 9d90ff8608b4e45e3c1031858bc92963 *R/aux_file.R
 89dc1625cf909f430aecb6ab1e5bb292 *R/bitpix.R
 6ceb0be88baf7a0e0383db89132c2832 *R/blend.R
-b560558fd39d431cae90004844595f7e *R/cal_img.R
+23dbd5f6e4a1cac8a496639dcd11d6b8 *R/cal_img.R
 58e4fb6d44c19b994d6794938893d534 *R/cal_max.R
 55b873caaf52badd325549867627f63d *R/cal_min.R
 a1b387b4cc1d8c6dbd560256f646c89f *R/cal_units.R
@@ -39,6 +39,7 @@ cc2adf88bef71eed85f7e17af984958f *R/funused1.R
 94bddc8c862d04bc9897870a96aa1454 *R/hist_un0.R
 a6a485b6b6dfb2a04a35b0c46d91f8c5 *R/hkey_un0.R
 3a7c05526112acee7743155a7f57a205 *R/hotmetal.R
+41ab28e72139559353d03670be5b14a6 *R/img_data.R
 b1db72dd2e83da5e3fa7f43460b28c2e *R/intent_code.R
 9808adf8f9efed70a9d74bc7224b5d86 *R/intent_name.R
 36b8f27f659070718f8fc5a39be8e610 *R/intent_p1.R
@@ -49,11 +50,13 @@ a99029247841520317c0e5a0abb37f17 *R/magic.R
 cc934ccb3768f89d725dc61dfb160a9c *R/miscellaneous.R
 70408e13168447966d11661d84bd1b1b *R/niftiS4.R
 2aff19345ec558c0fdee8af8f3fb39cd *R/nifti_assign.R
+b569afb9719e8eb1b1cd23cc42da4639 *R/nii2oro.R
 de23bc7939b839a0bc8eb715c22e38c1 *R/omax.R
 ba2b0c25eb41672a877a125405ddf6ad *R/omin.R
 8fb21afd1753b385d85b2935c88ed907 *R/onefile.R
 b2826dafb37d9a0cd7f7078bacd9e771 *R/orient.R
 e8f2959809a45c36c71d9168e4ac6912 *R/origin.R
+9f63447916ebe47f6338db46cdc5f912 *R/oro2nii.R
 c4631d384627ad15ef13382c625f2eff *R/patient_id.R
 c375891e3de6ed096d51241820c8de82 *R/pixdim.R
 e7b0d9bb45fac02c2687982655fa4a15 *R/plot.R
@@ -65,7 +68,7 @@ e81bd369b01f4119b6c95ec0a9645cc7 *R/qoffset_z.R
 f1dd71935794f5247f8ee71e9eafb9e8 *R/quatern_c.R
 c31d73c19075864a905a64baa1e539a5 *R/quatern_d.R
 01b82edb85301366b908265c2f1dfb13 *R/quaternion.R
-870d48cba02b8479e7a3b1286daf0e9f *R/readS4.R
+e2b17fc0fae65b4b45e412ed1771ad21 *R/readS4.R
 a41d7354dad01420f552d8f38687a41f *R/regular.R
 c8776a93eb13a78a2ec899704b59e5f1 *R/remove.R
 7254b0225aab273360d5603810c030fe *R/scannum.R
@@ -96,7 +99,7 @@ fe00931bc1f3cce338b61d73f3af965c *R/vols_added.R
 750697daea81a09f631049f00e803d20 *R/voxdim.R
 e5b0a7cb7f0e1b090256e544e5d4efa3 *R/voxres.R
 2895c68ac6190acfd5bb57c33cae68fe *R/wrappers.R
-8d4a2d99d8d52af8e9988189438f8e7f *R/writeS4.R
+ac87a53bc5f994a2474b6c2e9d0bec07 *R/writeS4.R
 2a193e3fffdf1f74a81eccf02fdd99a9 *R/xyzt_units.R
 f42219dad826644672e7ac4d8c07f41f *R/zero_trans.R
 1f084f2a249aefe7efb8f5a392bf88ed *R/zzz.R
@@ -116,7 +119,7 @@ a8f574c3bb7a7b5e429fa5a2eae787f7 *inst/anlz/avg152T1.hdr.gz
 e2566a24dcceedb12d798122bd2c9a3e *inst/doc/ANALYZE75.pdf
 1ce7cb8999f49243c2e7ca128fa914e5 *inst/doc/nifti.R
 89f6cdcc5644b2a8e360d9f423125998 *inst/doc/nifti.Rnw
-6c30352ec93bf41d83fbd9dc13392f2c *inst/doc/nifti.pdf
+1dba2b23c4ec270af79b93f61046795b *inst/doc/nifti.pdf
 0d7c61eb4afb2feb83471c340b619a0c *inst/nifti/filtered_func_data.nii.gz
 1048d947cc8b4739e7e217e83fdef18c *inst/nifti/mniLR.nii.gz
 76ef297b8b927471e1dd80b819540e9d *inst/nifti/mniRL.nii.gz
@@ -165,6 +168,7 @@ fe8ed1d47d8d8b401abdeeec20c59175 *man/hist_un0-methods.Rd
 31aee13676739f5a671370120c101c2a *man/hkey_un0-methods.Rd
 34b6137aaf8dc8ae815509eb38fc2b86 *man/hotmetal.Rd
 4e955f2f0550c30a207f85013ccd0674 *man/image-methods.Rd
+9323c49f5df09f674f8c7a719b3bf95f *man/img_data-methods.Rd
 0265f39519e1bc98a8a54eb93a7f2b80 *man/integerTranslation.Rd
 9089753c70cb45a8fe07e172af222cf1 *man/intent_code-methods.Rd
 d4c98d53fc03d87ed32bd796211d9f95 *man/intent_name-methods.Rd
@@ -183,12 +187,14 @@ db2c3249dd7940916d5254fba74338bc *man/niftiExtension-class.Rd
 8d1ce7e8edb276d6fd19186649e1c223 *man/niftiExtensionSection-class.Rd
 bbcc58a1b9db2406f35012bbc33a712c *man/nifti_assign-methods.Rd
 42795fcf7b0041b8c4539d999a0f1b45 *man/niftiops.Rd
+da2eba22d5d85a39b69602361fa05ec3 *man/nii2oro.Rd
 fcc2a5bc71f8056dda3bf7560414a217 *man/omax-methods.Rd
 9c4630824f681ab8b661a7939911e674 *man/omin-methods.Rd
 6975dc258017a814bd33c41b6b8c298f *man/onefile.Rd
 e7ea6649bd233543cc6e7d5c26d8567e *man/orient-methods.Rd
 a7a3253f5fe32bb9fb6d05032fc533b5 *man/orientation-methods.Rd
 230f3159cb638fc1dae1e73f1b3b3197 *man/origin-methods.Rd
+a3a4669596a56086cbe729f1dbaef583 *man/oro2nii.Rd
 7e41a66c49f226c9b6c780149d46b476 *man/orthographic-methods.Rd
 53235da74f51b4e70de2528dd93ee864 *man/overlay-methods.Rd
 0f7ed0b61dd2420701c47246a4940d05 *man/patient_id-methods.Rd
@@ -204,7 +210,7 @@ b9a51f2a078c4a0efa355ea598343085 *man/quatern_d-methods.Rd
 b0fc2ab62c8f8ca3d135f6e60b4569f2 *man/quaternion2rotation.Rd
 26a21e16b66455d3fb7344ef25685971 *man/read_afni.Rd
 3fadf7263d233a178f805ca714d0e676 *man/read_anlz.Rd
-13ce4e68d20fa199a1e220990f03c4e9 *man/read_nifti.Rd
+aee25f05a346cf33d982cbd8979f0730 *man/read_nifti.Rd
 b78a6bb986aff03c165a518f296acb53 *man/regular-methods.Rd
 697d8e79e43f086c610c29071e494b55 *man/remove.Rd
 35cbf93de8ffc057dc8966a6a9d7b35c *man/reorient.Rd
@@ -236,11 +242,11 @@ da95fdca8db6b52d7a50dcc94c71a9a2 *man/vox_offset-methods.Rd
 c90c3504cabd73ebe2253748b7af443c *man/voxdim.Rd
 259f3db83a1da5aec929414d81119405 *man/voxres.Rd
 98f4a583701506fc4b9718aaaf1fc2c0 *man/write_afni-methods.Rd
-8026ee1ca5308c8913e4e658e38c2ce1 *man/write_anlz.Rd
-3cbb52b3620dd35e5c39d57a15125bfc *man/write_nifti.Rd
+6336e3cf4987d7b57ff9c5429ca8ca76 *man/write_anlz.Rd
+5ae7384ef98f054ee2f2a08f38e8ca09 *man/write_nifti.Rd
 0b80a04d2fbc2e7997dc9918e50061b3 *man/xyzt_units-methods.Rd
 f423d8c11c176df8c958be082b89d62a *man/zero_trans.Rd
-3933446fa111e4aa3e188b9ffb643273 *tests/Examples/oro.nifti-Ex.Rout.save
+423bf630a14967d77811364e1639f75c *tests/Examples/oro.nifti-Ex.Rout.save
 3d481709609dcef20fb1fef491bb2066 *tests/testthat.R
 76c6e91960a392ecc2c2d2509495abd5 *tests/testthat/test_sizeof_hdr.R
 b3608c96cc9ebbdc3f8288bd243e9c64 *tests/testthat/test_xyzt_units.R

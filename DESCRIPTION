@@ -1,6 +1,5 @@
 Package: oro.nifti
-Version: 0.5.5.2
-Date: 2016-07-22
+Version: 0.7.2
 Title: Rigorous - NIfTI + ANALYZE + AFNI : Input / Output
 Authors@R: c(person("Brandon", "Whitcher", role = c("aut", "cre"),
   email = "bwhitcher@gmail.com"),
@@ -16,7 +15,7 @@ Description: Functions for the input/output and visualization of
 Depends: R (>= 2.14.0)
 Suggests: XML, testthat
 Imports: stats, bitops, splines, graphics, grDevices, methods, utils,
-        abind
+        abind, RNifti
 Enhances: dcemriS4, fmri, oro.dicom
 License: BSD_3_clause + file LICENSE
 URL: http://rig.oro.us.com, http://rigorousanalytics.blogspot.com
@@ -32,22 +31,23 @@ Collate: 'auditTrail.R' 'niftiS4.R' 'analyzeS4.R' 'afniS4.R' 'is.R'
         'glmin.R' 'pixdim.R' 'qform_code.R' 'scl_inter.R' 'scl_slope.R'
         'sform_code.R' 'vox_offset.R' 'bitpix.R' 'data_type.R'
         'datatype.R' 'db_name.R' 'dim_.R' 'dim_info.R' 'extender.R'
-        'extents.R' 'intent_code.R' 'intent_name.R' 'intent_p1.R'
-        'intent_p2.R' 'intent_p3.R' 'magic.R' 'qoffset_x.R'
-        'qoffset_y.R' 'qoffset_z.R' 'quatern_b.R' 'quatern_c.R'
-        'quatern_d.R' 'quaternion.R' 'regular.R' 'session_error.R'
-        'sizeof_hdr.R' 'slice_code.R' 'slice_duration.R' 'slice_end.R'
-        'slice_start.R' 'srow_x.R' 'srow_y.R' 'srow_z.R' 'toffset.R'
-        'xyzt_units.R' 'cal_units.R' 'compressed.R' 'dim_un0.R'
-        'exp_date.R' 'exp_time.R' 'field_skip.R' 'funused1.R'
-        'funused2.R' 'funused3.R' 'generated.R' 'hist_un0.R'
-        'hkey_un0.R' 'omax.R' 'omin.R' 'orient.R' 'origin.R'
-        'patient_id.R' 'scannum.R' 'smax.R' 'smin.R' 'start_field.R'
-        'unused1.R' 'verified.R' 'views.R' 'vols_added.R' 'vox_units.R'
-        'voxres.R' 'zzz.R'
-RoxygenNote: 5.0.1
+        'extents.R' 'img_data.R' 'intent_code.R' 'intent_name.R'
+        'intent_p1.R' 'intent_p2.R' 'intent_p3.R' 'magic.R'
+        'qoffset_x.R' 'qoffset_y.R' 'qoffset_z.R' 'quatern_b.R'
+        'quatern_c.R' 'quatern_d.R' 'quaternion.R' 'regular.R'
+        'session_error.R' 'sizeof_hdr.R' 'slice_code.R'
+        'slice_duration.R' 'slice_end.R' 'slice_start.R' 'srow_x.R'
+        'srow_y.R' 'srow_z.R' 'toffset.R' 'xyzt_units.R' 'cal_units.R'
+        'compressed.R' 'dim_un0.R' 'exp_date.R' 'exp_time.R'
+        'field_skip.R' 'funused1.R' 'funused2.R' 'funused3.R'
+        'generated.R' 'hist_un0.R' 'hkey_un0.R' 'nii2oro.R' 'oro2nii.R'
+        'omax.R' 'omin.R' 'orient.R' 'origin.R' 'patient_id.R'
+        'scannum.R' 'smax.R' 'smin.R' 'start_field.R' 'unused1.R'
+        'verified.R' 'views.R' 'vols_added.R' 'vox_units.R' 'voxres.R'
+        'zzz.R'
+RoxygenNote: 5.0.1.9000
 NeedsCompilation: no
-Packaged: 2016-07-22 21:49:08 UTC; brandon
+Packaged: 2016-12-30 13:26:50 UTC; brandon
 Author: Brandon Whitcher [aut, cre],
   Volker Schmid [aut],
   Andrew Thornton [aut],
@@ -56,4 +56,4 @@ Author: Brandon Whitcher [aut, cre],
   John Muschelli [ctb]
 Maintainer: Brandon Whitcher <bwhitcher@gmail.com>
 Repository: CRAN
-Date/Publication: 2016-07-24 01:16:58
+Date/Publication: 2016-12-31 16:32:14
