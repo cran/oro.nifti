@@ -43,9 +43,6 @@ convert.orient.anlz(2)
 convert.orient.anlz(4)
 
 }
-\author{
-Brandon Whitcher \email{bwhitcher@gmail.com}
-}
 \references{
 ANALYZE 7.5\cr\url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}
 }
@@ -54,4 +51,6 @@ ANALYZE 7.5\cr\url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}
 \code{\link{convert.intent}}, \code{\link{convert.form}},
 \code{\link{convert.units}}, \code{\link{convert.slice}}
 }
-
+\author{
+Brandon Whitcher \email{bwhitcher@gmail.com}
+}

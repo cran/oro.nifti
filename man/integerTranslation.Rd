@@ -29,4 +29,3 @@ text-based feedback during execution of the function.}
 \author{
 Andrew Thornton \email{zeripath@users.sourceforge.net}
 }
-

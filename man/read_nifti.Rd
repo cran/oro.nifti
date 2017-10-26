@@ -2,10 +2,13 @@
 % Please edit documentation in R/readS4.R
 \name{readNIfTI}
 \alias{readNIfTI}
+\alias{nifti_header}
 \title{readNIfTI}
 \usage{
 readNIfTI(fname, verbose = FALSE, warn = -1, reorient = TRUE,
-  call = NULL, force_extension = FALSE)
+  call = NULL, read_data = TRUE)
+
+nifti_header(fname, verbose = FALSE, warn = -1)
 }
 \arguments{
 \item{fname}{is the file name of the NIfTI file(s).}
@@ -22,11 +25,9 @@ Qform/Sform transformations.}
 \item{call}{keeps track of the current function call for use in the NIfTI
 extension.}
 
-\item{force_extension}{this function will check to see if the 
-\code{vox_offset} is correct.  If this is forced to \code{348}, which some 
-(very) old NIfTI writers use, this may cause an error if the extension is read,
-and so it is skipped (with a warning). If \code{force_extension = TRUE},
-then reading the extension is forced (when appropriate).}
+\item{read_data}{Should the data be read in?  If this is FALSE,
+then an array of NAs are given instead of the true data.
+Useful if you are simply interested in the header.}
 }
 \value{
 An object of class \code{nifti}.
@@ -75,16 +76,15 @@ image(colin, oma=rep(2,4))
 orthographic(colin, oma=rep(2,4))
 }
 }
-\author{
-Brandon Whitcher \email{bwhitcher@gmail.com},\cr Volker Schmid
-\email{volkerschmid@users.sourceforge.net},\cr Andrew Thornton
-\email{zeripath@users.sourceforge.net}
-}
 \references{
 NIfTI-1\cr \url{http://nifti.nimh.nih.gov/}
 }
 \seealso{
 \code{\link{readAFNI}}, \code{\link{readANALYZE}}
 }
+\author{
+Brandon Whitcher \email{bwhitcher@gmail.com},\cr Volker Schmid
+\email{volkerschmid@users.sourceforge.net},\cr Andrew Thornton
+\email{zeripath@users.sourceforge.net}
+}
 \keyword{file}
-

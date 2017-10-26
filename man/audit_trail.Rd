@@ -2,16 +2,16 @@
 % Please edit documentation in R/auditTrail.R
 \name{Audit Trails}
 \alias{Audit Trails}
+\alias{oro.nifti.info}
 \alias{enableAuditTrail}
-\alias{getLastCallWithName}
 \alias{newAuditTrail}
-\alias{niftiAuditTrailCreated}
-\alias{niftiAuditTrailEvent}
+\alias{niftiExtensionToAuditTrail}
+\alias{niftiAuditTrailToExtension}
 \alias{niftiAuditTrailSystemNode}
 \alias{niftiAuditTrailSystemNodeEvent}
-\alias{niftiAuditTrailToExtension}
-\alias{niftiExtensionToAuditTrail}
-\alias{oro.nifti.info}
+\alias{niftiAuditTrailCreated}
+\alias{niftiAuditTrailEvent}
+\alias{getLastCallWithName}
 \title{Facilitate the Creation and Modification of Audit Trails}
 \usage{
 oro.nifti.info(type)
@@ -184,4 +184,3 @@ niftiizedForm <- function(nim,...) {
 Andrew Thornton \email{zeripath@users.sourceforge.net} and Brandon
 Whitcher \email{bwhitcher@gmail.com}
 }
-

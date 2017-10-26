@@ -93,12 +93,10 @@ The AFNI class for medical imaging data.
   @export
   @rdname afni-class
 }
+
 \examples{
 
 showClass("afni")
-}
-\author{
-Karsten Tabelow \email{karsten.tabelow@wias-berlin.de}
 }
 \references{
 AFNI\cr
@@ -107,5 +105,7 @@ AFNI\cr
 \seealso{
 \code{\linkS4class{nifti}}, \code{\linkS4class{anlz}}
 }
+\author{
+Karsten Tabelow \email{karsten.tabelow@wias-berlin.de}
+}
 \keyword{classes}
-

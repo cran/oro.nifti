@@ -4,10 +4,10 @@
 \alias{Convert NIfTI Codes}
 \alias{convert.bitpix}
 \alias{convert.datatype}
-\alias{convert.form}
 \alias{convert.intent}
-\alias{convert.slice}
+\alias{convert.form}
 \alias{convert.units}
+\alias{convert.slice}
 \title{Convert NIfTI Codes}
 \usage{
 convert.bitpix(bitpix = NULL)
@@ -61,11 +61,10 @@ convert.orient.anlz(2)
 convert.orient.anlz(4)
 
 }
-\author{
-Brandon Whitcher \email{bwhitcher@gmail.com}
-}
 \references{
 Neuroimaging Informatics Technology Initiative (NIfTI)\cr
 \url{http://nifti.nimh.nih.gov/}
 }
-
+\author{
+Brandon Whitcher \email{bwhitcher@gmail.com}
+}

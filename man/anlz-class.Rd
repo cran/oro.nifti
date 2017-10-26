@@ -97,12 +97,10 @@ function.
                 of the imaging data.}
   }
 }
+
 \examples{
 
 showClass("anlz")
-}
-\author{
-Brandon Whitcher \email{bwhitcher@gmail.com}
 }
 \references{
 ANALYZE 7.5\cr\url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}
@@ -110,5 +108,7 @@ ANALYZE 7.5\cr\url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}
 \seealso{
 \code{\linkS4class{nifti}}, \code{\linkS4class{niftiExtension}}
 }
+\author{
+Brandon Whitcher \email{bwhitcher@gmail.com}
+}
 \keyword{classes}
-

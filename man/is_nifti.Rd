@@ -2,9 +2,12 @@
 % Please edit documentation in R/is.R
 \name{is.nifti}
 \alias{is.nifti}
+\alias{is.niftiExtension}
 \title{check object}
 \usage{
 is.nifti(x)
+
+is.niftiExtension(x)
 }
 \arguments{
 \item{x}{is an object to be checked.}
@@ -16,13 +19,12 @@ Logical indicating whether object is of class
 \description{
 Check whether object is of class \code{\linkS4class{nifti}}.
 }
-\author{
-Karsten Tabelow \email{karsten.tabelow@wias-berlin.de}
-}
 \references{
 NIfTI-1\cr \url{http://nifti.nimh.nih.gov/}
 }
 \seealso{
 \code{\linkS4class{nifti}}
 }
-
+\author{
+Karsten Tabelow \email{karsten.tabelow@wias-berlin.de}
+}

@@ -2,27 +2,27 @@
 % Please edit documentation in R/plot.R
 \docType{methods}
 \name{overlay-methods}
-\alias{overlay}
-\alias{overlay,afni,afni-method}
-\alias{overlay,afni,array-method}
-\alias{overlay,anlz,anlz-method}
-\alias{overlay,anlz,array-method}
-\alias{overlay,anlz,nifti-method}
-\alias{overlay,array,anlz-method}
-\alias{overlay,array,array-method}
-\alias{overlay,array,nifti-method}
-\alias{overlay,nifti,anlz-method}
-\alias{overlay,nifti,array-method}
-\alias{overlay,nifti,nifti-method}
 \alias{overlay-methods}
 \alias{overlay.nifti}
+\alias{overlay}
+\alias{overlay,nifti,nifti-method}
+\alias{overlay,nifti,anlz-method}
+\alias{overlay,nifti,array-method}
+\alias{overlay,anlz,nifti-method}
+\alias{overlay,anlz,anlz-method}
+\alias{overlay,anlz,array-method}
+\alias{overlay,array,nifti-method}
+\alias{overlay,array,anlz-method}
+\alias{overlay,array,array-method}
+\alias{overlay,afni,afni-method}
+\alias{overlay,afni,array-method}
 \title{Methods for Function overlay}
 \usage{
 overlay.nifti(x, y, z = 1, w = 1, col.x = gray(0:64/64),
   col.y = hotmetal(), zlim.x = NULL, zlim.y = NULL, plane = c("axial",
   "coronal", "sagittal"), plot.type = c("multiple", "single"), xlab = "",
   ylab = "", axes = FALSE, oma = rep(0, 4), mar = rep(0, 4),
-  bg = "black", ...)
+  bg = "black", NA.x = FALSE, NA.y = FALSE, ...)
 
 overlay(x, y, ...)
 
@@ -30,25 +30,25 @@ overlay(x, y, ...)
   col.y = hotmetal(), zlim.x = NULL, zlim.y = NULL, plane = c("axial",
   "coronal", "sagittal"), plot.type = c("multiple", "single"), xlab = "",
   ylab = "", axes = FALSE, oma = rep(0, 4), mar = rep(0, 4),
-  bg = "black", ...)
+  bg = "black", NA.x = FALSE, NA.y = FALSE, ...)
 
 \S4method{overlay}{anlz,anlz}(x, y, z = 1, w = 1, col.x = gray(0:64/64),
   col.y = hotmetal(), zlim.x = NULL, zlim.y = NULL, plane = c("axial",
   "coronal", "sagittal"), plot.type = c("multiple", "single"), xlab = "",
   ylab = "", axes = FALSE, oma = rep(0, 4), mar = rep(0, 4),
-  bg = "black", ...)
+  bg = "black", NA.x = FALSE, NA.y = FALSE, ...)
 
 \S4method{overlay}{anlz,nifti}(x, y, z = 1, w = 1, col.x = gray(0:64/64),
   col.y = hotmetal(), zlim.x = NULL, zlim.y = NULL, plane = c("axial",
   "coronal", "sagittal"), plot.type = c("multiple", "single"), xlab = "",
   ylab = "", axes = FALSE, oma = rep(0, 4), mar = rep(0, 4),
-  bg = "black", ...)
+  bg = "black", NA.x = FALSE, NA.y = FALSE, ...)
 
 \S4method{overlay}{nifti,anlz}(x, y, z = 1, w = 1, col.x = gray(0:64/64),
   col.y = hotmetal(), zlim.x = NULL, zlim.y = NULL, plane = c("axial",
   "coronal", "sagittal"), plot.type = c("multiple", "single"), xlab = "",
   ylab = "", axes = FALSE, oma = rep(0, 4), mar = rep(0, 4),
-  bg = "black", ...)
+  bg = "black", NA.x = FALSE, NA.y = FALSE, ...)
 
 \S4method{overlay}{array,array}(x, y, ...)
 
@@ -97,6 +97,10 @@ matrix (left-to-right, top-to-bottom), or a single slice.}
 
 \item{bg}{is the background color in the \code{par} function.}
 
+\item{NA.x}{Set any values of 0 in \code{x} to \code{NA}}
+
+\item{NA.y}{Set any values of 0 in \code{y} to \code{NA}}
+
 \item{\dots}{other arguments to the \code{image} function may be provided
 here.}
 }
@@ -116,11 +120,11 @@ top of the other, for medical imaging data.
 \item{x = "afni", y = "afni"}{Produce overlay of \code{y} on \code{x}.} 
 }
 }
-\author{
-Brandon Whitcher \email{bwhitcher@gmail.com}
-}
+
 \seealso{
 \code{\link{image-methods}}, \code{\link{overlay-methods}}
 }
+\author{
+Brandon Whitcher \email{bwhitcher@gmail.com}
+}
 \keyword{methods}
-
