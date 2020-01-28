@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("extender", function(object) standardGeneric("extender"))
 #' @rdname extender-methods
 #' @aliases extender,nifti-method
 #' @export
-setMethod("extender", "nifti", function(object) { object@"extender" })
+setMethod("extender", "nifti", function(object) object@"extender")
 #' @rdname extender-methods
 #' @aliases extender<- 
 #' @export
-setGeneric("extender<-", function(object, value) { standardGeneric("extender<-") })
+setGeneric("extender<-", function(object, value) standardGeneric("extender<-"))
 #' @rdname extender-methods
 #' @aliases extender<-,nifti-method
 #' @export

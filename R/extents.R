@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,15 +22,15 @@ setGeneric("extents", function(object) standardGeneric("extents"))
 #' @rdname extents-methods
 #' @aliases extents,nifti-method
 #' @export
-setMethod("extents", "nifti", function(object) { object@"extents" })
+setMethod("extents", "nifti", function(object) object@"extents")
 #' @rdname extents-methods
 #' @aliases extents,anlz-method
 #' @export
-setMethod("extents", "anlz", function(object) { object@"extents" })
+setMethod("extents", "anlz", function(object) object@"extents")
 #' @rdname extents-methods
 #' @aliases extents<- 
 #' @export
-setGeneric("extents<-", function(object, value) { standardGeneric("extents<-") })
+setGeneric("extents<-", function(object, value) standardGeneric("extents<-"))
 #' @rdname extents-methods
 #' @aliases extents<-,nifti-method
 #' @export

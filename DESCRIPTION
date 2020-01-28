@@ -1,23 +1,41 @@
 Package: oro.nifti
-Version: 0.9.1
-Title: Rigorous - NIfTI + ANALYZE + AFNI : Input / Output
-Authors@R: c(person("Brandon", "Whitcher", role = c("aut", "cre"),
-  email = "bwhitcher@gmail.com"),
-	person("Volker", "Schmid", role = "aut", email="volker.schmid@lmu.de"),
-	person("Andrew", "Thornton", role = "aut", email = "zeripath@gmail.com"),
-	person("Karsten", "Tabelow", role = "ctb",
-	email = "karsten.tabelow@wias-berlin.de"),
-	person("Jon", "Clayden", role = "ctb", 	email = "code@clayden.org"),
-	person("John", "Muschelli", role = "ctb", email = "muschellij2@gmail.com"))
+Version: 0.10.1
+Title: Rigorous - 'NIfTI' + 'ANALYZE' + 'AFNI' : Input / Output
+Authors@R: 
+    c(person(given = "Brandon",
+             family = "Whitcher",
+             role = c("aut", "cre"),
+             email = "bwhitcher@gmail.com"),
+      person(given = "Volker",
+             family = "Schmid",
+             role = "aut",
+             email = "volker.schmid@lmu.de"),
+      person(given = "Andrew",
+             family = "Thornton",
+             role = "aut",
+             email = "zeripath@gmail.com"),
+      person(given = "Karsten",
+             family = "Tabelow",
+             role = "ctb",
+             email = "karsten.tabelow@wias-berlin.de"),
+      person(given = "Jon",
+             family = "Clayden",
+             role = "ctb",
+             email = "code@clayden.org"),
+      person(given = "John",
+             family = "Muschelli",
+             role = "aut",
+             email = "muschellij2@gmail.com"))
 Description: Functions for the input/output and visualization of
-    medical imaging data that follow either the ANALYZE, NIfTI or AFNI
+    medical imaging data that follow either the 'ANALYZE', 'NIfTI' or 'AFNI'
     formats.  This package is part of the Rigorous Analytics bundle.
 Depends: R (>= 2.14.0)
-Suggests: XML, testthat
+Suggests: XML, testthat, covr, knitr, rmarkdown
 Imports: stats, bitops, splines, graphics, grDevices, methods, utils,
-        abind, RNifti
+        abind, RNifti (>= 0.9.0)
 Enhances: dcemriS4, fmri, oro.dicom
 License: BSD_3_clause + file LICENSE
+BugReports: https://github.com/bjw34032/oro.nifti/issues
 URL: http://rig.oro.us.com, http://rigorousanalytics.blogspot.com
 LazyData: true
 LazyDataCompression: gzip
@@ -41,20 +59,21 @@ Collate: 'auditTrail.R' 'niftiS4.R' 'analyzeS4.R' 'afniS4.R' 'is.R'
         'xyzt_units.R' 'cal_units.R' 'compressed.R' 'dim_un0.R'
         'exp_date.R' 'exp_time.R' 'field_skip.R' 'funused1.R'
         'funused2.R' 'funused3.R' 'generated.R' 'hist_un0.R'
-        'hkey_un0.R' 'nii2oro.R' 'oro2nii.R' 'omax.R' 'omin.R'
-        'orient.R' 'origin.R' 'patient_id.R' 'scannum.R' 'smax.R'
-        'smin.R' 'start_field.R' 'unused1.R' 'verified.R' 'views.R'
-        'vols_added.R' 'vox_units.R' 'voxres.R' 'zzz.R'
-RoxygenNote: 6.0.1.9000
+        'hkey_un0.R' 'niftiImage_class.R' 'nii2oro.R' 'oro2nii.R'
+        'omax.R' 'omin.R' 'orient.R' 'origin.R' 'patient_id.R'
+        'scannum.R' 'smax.R' 'smin.R' 'start_field.R' 'unused1.R'
+        'verified.R' 'views.R' 'vols_added.R' 'vox_units.R' 'voxres.R'
+        'img_length.R' 'zzz.R' 'zzz_niftiImage.R'
+RoxygenNote: 7.0.1
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2017-10-26 14:34:20 UTC; johnmuschelli
+Packaged: 2020-01-24 18:58:03 UTC; johnmuschelli
 Author: Brandon Whitcher [aut, cre],
   Volker Schmid [aut],
   Andrew Thornton [aut],
   Karsten Tabelow [ctb],
   Jon Clayden [ctb],
-  John Muschelli [ctb]
+  John Muschelli [aut]
 Maintainer: Brandon Whitcher <bwhitcher@gmail.com>
 Repository: CRAN
-Date/Publication: 2017-10-26 21:12:59 UTC
+Date/Publication: 2020-01-28 21:20:08 UTC

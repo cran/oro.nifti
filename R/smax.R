@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("smax", function(object) standardGeneric("smax"))
 #' @rdname smax-methods
 #' @aliases smax,anlz-method
 #' @export
-setMethod("smax", "anlz", function(object) { object@"smax" })
+setMethod("smax", "anlz", function(object) object@"smax")
 #' @rdname smax-methods
 #' @aliases smax<- 
 #' @export
-setGeneric("smax<-", function(object, value) { standardGeneric("smax<-") })
+setGeneric("smax<-", function(object, value) standardGeneric("smax<-"))
 #' @rdname smax-methods
 #' @aliases smax<-,anlz-method
 #' @export

@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("verified", function(object) standardGeneric("verified"))
 #' @rdname verified-methods
 #' @aliases verified,anlz-method
 #' @export
-setMethod("verified", "anlz", function(object) { object@"verified" })
+setMethod("verified", "anlz", function(object) object@"verified")
 #' @rdname verified-methods
 #' @aliases verified<- 
 #' @export
-setGeneric("verified<-", function(object, value) { standardGeneric("verified<-") })
+setGeneric("verified<-", function(object, value) standardGeneric("verified<-"))
 #' @rdname verified-methods
 #' @aliases verified<-,anlz-method
 #' @export

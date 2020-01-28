@@ -9,19 +9,46 @@
 \alias{slice,afni-method}
 \alias{slice,anlz-method}
 \alias{slice,nifti-method}
+\alias{slice,array-method}
 \title{Methods for Function `slice'}
 \usage{
 slice(x, ...)
 
-\S4method{slice}{nifti}(x, z = 1, w = 1, col = gray(0:64/64),
-  plane = c("axial", "coronal", "sagittal"), zlim = NULL, xlab = "",
-  ylab = "", axes = FALSE, oma = rep(0, 4), mar = rep(0, 4),
-  bg = "black", useRaster = TRUE, ...)
+\S4method{slice}{nifti}(
+  x,
+  z = 1,
+  w = 1,
+  col = gray(0:64/64),
+  plane = c("axial", "coronal", "sagittal"),
+  zlim = NULL,
+  xlab = "",
+  ylab = "",
+  axes = FALSE,
+  oma = rep(0, 4),
+  mar = rep(0, 4),
+  bg = "black",
+  useRaster = TRUE,
+  ...
+)
 
-\S4method{slice}{anlz}(x, z = 1, w = 1, col = gray(0:64/64),
-  plane = c("axial", "coronal", "sagittal"), zlim = NULL, xlab = "",
-  ylab = "", axes = FALSE, oma = rep(0, 4), mar = rep(0, 4),
-  bg = "black", useRaster = TRUE, ...)
+\S4method{slice}{anlz}(
+  x,
+  z = 1,
+  w = 1,
+  col = gray(0:64/64),
+  plane = c("axial", "coronal", "sagittal"),
+  zlim = NULL,
+  xlab = "",
+  ylab = "",
+  axes = FALSE,
+  oma = rep(0, 4),
+  mar = rep(0, 4),
+  bg = "black",
+  useRaster = TRUE,
+  ...
+)
+
+\S4method{slice}{array}(x, ...)
 
 \S4method{slice}{afni}(x, ...)
 }

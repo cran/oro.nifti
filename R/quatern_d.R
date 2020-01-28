@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("quatern_d", function(object) standardGeneric("quatern_d"))
 #' @rdname quatern_d-methods
 #' @aliases quatern_d,nifti-method
 #' @export
-setMethod("quatern_d", "nifti", function(object) { object@"quatern_d" })
+setMethod("quatern_d", "nifti", function(object) object@"quatern_d")
 #' @rdname quatern_d-methods
 #' @aliases quatern_d<- 
 #' @export
-setGeneric("quatern_d<-", function(object, value) { standardGeneric("quatern_d<-") })
+setGeneric("quatern_d<-", function(object, value) standardGeneric("quatern_d<-"))
 #' @rdname quatern_d-methods
 #' @aliases quatern_d<-,nifti-method
 #' @export
@@ -50,11 +50,11 @@ setGeneric("quatern.d", function(object) standardGeneric("quatern.d"))
 #' @rdname quatern_d-methods
 #' @aliases quatern.d,nifti-method
 #' @export
-setMethod("quatern.d", "nifti", function(object) { object@"quatern_d" })
+setMethod("quatern.d", "nifti", function(object) object@"quatern_d")
 #' @rdname quatern_d-methods
 #' @aliases quatern.d<- 
 #' @export
-setGeneric("quatern.d<-", function(object, value) { standardGeneric("quatern.d<-") })
+setGeneric("quatern.d<-", function(object, value) standardGeneric("quatern.d<-"))
 #' @rdname quatern_d-methods
 #' @aliases quatern.d<-,nifti-method
 #' @export

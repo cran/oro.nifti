@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("unused1", function(object) standardGeneric("unused1"))
 #' @rdname unused1-methods
 #' @aliases unused1,anlz-method
 #' @export
-setMethod("unused1", "anlz", function(object) { object@"unused1" })
+setMethod("unused1", "anlz", function(object) object@"unused1")
 #' @rdname unused1-methods
 #' @aliases unused1<- 
 #' @export
-setGeneric("unused1<-", function(object, value) { standardGeneric("unused1<-") })
+setGeneric("unused1<-", function(object, value) standardGeneric("unused1<-"))
 #' @rdname unused1-methods
 #' @aliases unused1<-,anlz-method
 #' @export

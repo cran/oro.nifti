@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,15 +22,15 @@ setGeneric("dim_", function(object) standardGeneric("dim_"))
 #' @rdname dim_-methods
 #' @aliases dim_,nifti-method
 #' @export
-setMethod("dim_", "nifti", function(object) { object@"dim_" })
+setMethod("dim_", "nifti", function(object) object@"dim_")
 #' @rdname dim_-methods
 #' @aliases dim_,anlz-method
 #' @export
-setMethod("dim_", "anlz", function(object) { object@"dim_" })
+setMethod("dim_", "anlz", function(object) object@"dim_")
 #' @rdname dim_-methods
 #' @aliases dim_<- 
 #' @export
-setGeneric("dim_<-", function(object, value) { standardGeneric("dim_<-") })
+setGeneric("dim_<-", function(object, value) standardGeneric("dim_<-"))
 #' @rdname dim_-methods
 #' @aliases dim_<-,nifti-method
 #' @export
@@ -60,3 +60,15 @@ setMethod("dim_<-",
             }
             return(object)
           })
+
+#' @rdname dim_-methods
+#' @aliases dim_,ANY-method
+#' @export
+#' @importFrom RNifti niftiHeader
+setMethod("dim_", "ANY", function(object) { 
+  if (inherits(object, "niftiImage")) {
+    return(RNifti::niftiHeader(object)$dim)
+  } else {
+    stop("Not implemented for this type!")
+  }
+})

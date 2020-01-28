@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("intent_name", function(object) standardGeneric("intent_name"))
 #' @rdname intent_name-methods
 #' @aliases intent_name,nifti-method
 #' @export
-setMethod("intent_name", "nifti", function(object) { object@"intent_name" })
+setMethod("intent_name", "nifti", function(object) object@"intent_name")
 #' @rdname intent_name-methods
 #' @aliases intent_name<- 
 #' @export
-setGeneric("intent_name<-", function(object, value) { standardGeneric("intent_name<-") })
+setGeneric("intent_name<-", function(object, value) standardGeneric("intent_name<-"))
 #' @rdname intent_name-methods
 #' @aliases intent_name<-,nifti-method
 #' @export
@@ -50,11 +50,11 @@ setGeneric("intent.name", function(object) standardGeneric("intent.name"))
 #' @rdname intent_name-methods
 #' @aliases intent.name,nifti-method
 #' @export
-setMethod("intent.name", "nifti", function(object) { object@"intent_name" })
+setMethod("intent.name", "nifti", function(object) object@"intent_name")
 #' @rdname intent_name-methods
 #' @aliases intent.name<- 
 #' @export
-setGeneric("intent.name<-", function(object, value) { standardGeneric("intent.name<-") })
+setGeneric("intent.name<-", function(object, value) standardGeneric("intent.name<-"))
 #' @rdname intent_name-methods
 #' @aliases intent.name<-,nifti-method
 #' @export

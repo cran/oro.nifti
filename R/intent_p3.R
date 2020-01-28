@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("intent_p3", function(object) standardGeneric("intent_p3"))
 #' @rdname intent_p3-methods
 #' @aliases intent_p3,nifti-method
 #' @export
-setMethod("intent_p3", "nifti", function(object) { object@"intent_p3" })
+setMethod("intent_p3", "nifti", function(object) object@"intent_p3")
 #' @rdname intent_p3-methods
 #' @aliases intent_p3<- 
 #' @export
-setGeneric("intent_p3<-", function(object, value) { standardGeneric("intent_p3<-") })
+setGeneric("intent_p3<-", function(object, value) standardGeneric("intent_p3<-"))
 #' @rdname intent_p3-methods
 #' @aliases intent_p3<-,nifti-method
 #' @export
@@ -50,11 +50,11 @@ setGeneric("intent.p3", function(object) standardGeneric("intent.p3"))
 #' @rdname intent_p3-methods
 #' @aliases intent.p3,nifti-method
 #' @export
-setMethod("intent.p3", "nifti", function(object) { object@"intent_p3" })
+setMethod("intent.p3", "nifti", function(object) object@"intent_p3")
 #' @rdname intent_p3-methods
 #' @aliases intent.p3<- 
 #' @export
-setGeneric("intent.p3<-", function(object, value) { standardGeneric("intent.p3<-") })
+setGeneric("intent.p3<-", function(object, value) standardGeneric("intent.p3<-"))
 #' @rdname intent_p3-methods
 #' @aliases intent.p3<-,nifti-method
 #' @export

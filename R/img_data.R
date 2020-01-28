@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,17 +22,19 @@ setGeneric("img_data", function(object) standardGeneric("img_data"))
 #' @rdname img_data-methods
 #' @aliases img_data,nifti-method
 #' @export
-setMethod("img_data", "nifti", function(object) { object@".Data" })
+setMethod("img_data", "nifti", function(object) object@".Data")
 #' @rdname img_data-methods
 #' @aliases img_data,anlz-method
 #' @export
-setMethod("img_data", "anlz", function(object) { object@".Data" })
+setMethod("img_data", "anlz", function(object) object@".Data")
 #' @rdname img_data-methods
 #' @aliases img_data,character-method
 #' @export
 setMethod("img_data", "character", function(object) { 
   object = readNifti(object)
-  as.array(object)
+  object = array(object)
+  object = as.array(object)
+  as(object, "array")
   })
 #' @rdname img_data-methods
 #' @aliases img_data,ANY-method
@@ -40,13 +42,15 @@ setMethod("img_data", "character", function(object) {
 #' @export
 setMethod("img_data", "ANY", function(object) { 
   object = RNifti::retrieveNifti(object)
-  as.array(object)
+  object = array(object)
+  object = as.array(object)
+  as(object, "array")
 })
 
 #' @rdname img_data-methods
 #' @aliases img_data<- 
 #' @export
-setGeneric("img_data<-", function(object, value) { standardGeneric("img_data<-") })
+setGeneric("img_data<-", function(object, value) standardGeneric("img_data<-"))
 #' @rdname img_data-methods
 #' @aliases img_data<-,nifti-method
 #' @export

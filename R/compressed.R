@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("compressed", function(object) standardGeneric("compressed"))
 #' @rdname compressed-methods
 #' @aliases compressed,anlz-method
 #' @export
-setMethod("compressed", "anlz", function(object) { object@"compressed" })
+setMethod("compressed", "anlz", function(object) object@"compressed")
 #' @rdname compressed-methods
 #' @aliases compressed<- 
 #' @export
-setGeneric("compressed<-", function(object, value) { standardGeneric("compressed<-") })
+setGeneric("compressed<-", function(object, value) standardGeneric("compressed<-"))
 #' @rdname compressed-methods
 #' @aliases compressed<-,anlz-method
 #' @export

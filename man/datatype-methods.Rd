@@ -9,6 +9,7 @@
 \alias{datatype,anlz-method}
 \alias{datatype<-}
 \alias{datatype<-,nifti-method}
+\alias{datatype,ANY-method}
 \alias{datatype<-,anlz-method}
 \title{Extract Image Attribute \code{datatype}}
 \usage{
@@ -21,6 +22,8 @@ datatype(object)
 datatype(object) <- value
 
 \S4method{datatype}{nifti}(object) <- value
+
+\S4method{datatype}{ANY}(object)
 
 \S4method{datatype}{anlz}(object) <- value
 }
@@ -39,7 +42,7 @@ more details.
 }
 \references{
 ANALYZE 7.5\cr
-\url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+\url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 NIfTI-1\cr
 \url{http://nifti.nimh.nih.gov/}
 }

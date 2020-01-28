@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,15 +22,15 @@ setGeneric("glmax", function(object) standardGeneric("glmax"))
 #' @rdname glmax-methods
 #' @aliases glmax,nifti-method
 #' @export
-setMethod("glmax", "nifti", function(object) { object@"glmax" })
+setMethod("glmax", "nifti", function(object) object@"glmax")
 #' @rdname glmax-methods
 #' @aliases glmax,anlz-method
 #' @export
-setMethod("glmax", "anlz", function(object) { object@"glmax" })
+setMethod("glmax", "anlz", function(object) object@"glmax")
 #' @rdname glmax-methods
 #' @aliases glmax<- 
 #' @export
-setGeneric("glmax<-", function(object, value) { standardGeneric("glmax<-") })
+setGeneric("glmax<-", function(object, value) standardGeneric("glmax<-"))
 #' @rdname glmax-methods
 #' @aliases glmax<-,nifti-method
 #' @export

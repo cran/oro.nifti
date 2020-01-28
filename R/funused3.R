@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("funused3", function(object) standardGeneric("funused3"))
 #' @rdname funused3-methods
 #' @aliases funused3,anlz-method
 #' @export
-setMethod("funused3", "anlz", function(object) { object@"funused3" })
+setMethod("funused3", "anlz", function(object) object@"funused3")
 #' @rdname funused3-methods
 #' @aliases funused3<- 
 #' @export
-setGeneric("funused3<-", function(object, value) { standardGeneric("funused3<-") })
+setGeneric("funused3<-", function(object, value) standardGeneric("funused3<-"))
 #' @rdname funused3-methods
 #' @aliases funused3<-,anlz-method
 #' @export

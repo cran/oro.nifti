@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,15 +22,15 @@ setGeneric("datatype", function(object) standardGeneric("datatype"))
 #' @rdname datatype-methods
 #' @aliases datatype,nifti-method
 #' @export
-setMethod("datatype", "nifti", function(object) { object@"datatype" })
+setMethod("datatype", "nifti", function(object) object@"datatype")
 #' @rdname datatype-methods
 #' @aliases datatype,anlz-method
 #' @export
-setMethod("datatype", "anlz", function(object) { object@"datatype" })
+setMethod("datatype", "anlz", function(object) object@"datatype")
 #' @rdname datatype-methods
 #' @aliases datatype<- 
 #' @export
-setGeneric("datatype<-", function(object, value) { standardGeneric("datatype<-") })
+setGeneric("datatype<-", function(object, value) standardGeneric("datatype<-"))
 #' @rdname datatype-methods
 #' @aliases datatype<-,nifti-method
 #' @export
@@ -47,6 +47,19 @@ setMethod("datatype<-",
             }                       
             return(object)
           })
+
+#' @rdname datatype-methods
+#' @aliases datatype,ANY-method
+#' @export
+#' @importFrom RNifti niftiHeader
+setMethod("datatype", "ANY", function(object) { 
+  if (inherits(object, "niftiImage")) {
+    return(RNifti::niftiHeader(object)$datatype)
+  } else {
+    stop("Not implemented for this type!")
+  }
+})
+
 #' @rdname datatype-methods
 #' @aliases datatype<-,anlz-method
 #' @export

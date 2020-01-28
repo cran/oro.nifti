@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #' @examples \dontrun{
@@ -31,15 +31,30 @@ setGeneric("pixdim", function(object) standardGeneric("pixdim"))
 #' @rdname pixdim-methods
 #' @aliases pixdim,nifti-method
 #' @export
-setMethod("pixdim", "nifti", function(object) { object@"pixdim" })
+setMethod("pixdim", "nifti", function(object) object@"pixdim")
+#' @rdname pixdim-methods
+#' @aliases pixdim,ANY-method
+#' @export
+#' @importFrom RNifti pixdim
+setMethod("pixdim", "ANY", function(object) { 
+  if (inherits(object, "niftiImage")) {
+    # RNifti::niftiHeader(object)$pixdim
+    return(RNifti::pixdim(object))
+  } else if (inherits(object, "niftiHeader")) {
+    return(object$pixdim)
+  } else {
+    stop("Not implemented for this type!")
+  }
+})
+
 #' @rdname pixdim-methods
 #' @aliases pixdim,anlz-method
 #' @export
-setMethod("pixdim", "anlz", function(object) { object@"pixdim" })
+setMethod("pixdim", "anlz", function(object) object@"pixdim")
 #' @rdname pixdim-methods
 #' @aliases pixdim<- 
 #' @export
-setGeneric("pixdim<-", function(object, value) { standardGeneric("pixdim<-") })
+setGeneric("pixdim<-", function(object, value) standardGeneric("pixdim<-"))
 #' @rdname pixdim-methods
 #' @aliases pixdim<-,nifti-method
 #' @export
@@ -69,3 +84,18 @@ setMethod("pixdim<-",
             }
             return(object)
           })
+
+#' @rdname pixdim-methods
+#' @aliases pixdim<-,ANY-method
+#' @export
+#' @importFrom RNifti pixdim<-
+setMethod(
+  "pixdim<-", 
+  signature(object = "ANY"), 
+  function(object, value) { 
+    if (inherits(object, "niftiImage")) {
+      object = RNifti::`pixdim<-`(object, value)
+      return(object)
+    }
+    stop("Not implemented for this type!")
+  })

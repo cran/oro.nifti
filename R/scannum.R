@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("scannum", function(object) standardGeneric("scannum"))
 #' @rdname scannum-methods
 #' @aliases scannum,anlz-method
 #' @export
-setMethod("scannum", "anlz", function(object) { object@"scannum" })
+setMethod("scannum", "anlz", function(object) object@"scannum")
 #' @rdname scannum-methods
 #' @aliases scannum<- 
 #' @export
-setGeneric("scannum<-", function(object, value) { standardGeneric("scannum<-") })
+setGeneric("scannum<-", function(object, value) standardGeneric("scannum<-"))
 #' @rdname scannum-methods
 #' @aliases scannum<-,anlz-method
 #' @export

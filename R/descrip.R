@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #' @examples \dontrun{
@@ -35,15 +35,15 @@ setGeneric("descrip", function(object) standardGeneric("descrip"))
 #' @rdname descrip-methods
 #' @aliases descrip,nifti-method
 #' @export
-setMethod("descrip", "nifti", function(object) { object@"descrip" })
+setMethod("descrip", "nifti", function(object) object@"descrip")
 #' @rdname descrip-methods
 #' @aliases descrip,anlz-method
 #' @export
-setMethod("descrip", "anlz", function(object) { object@"descrip" })
+setMethod("descrip", "anlz", function(object) object@"descrip")
 #' @rdname descrip-methods
 #' @aliases descrip<- 
 #' @export
-setGeneric("descrip<-", function(object, value) { standardGeneric("descrip<-") })
+setGeneric("descrip<-", function(object, value) standardGeneric("descrip<-"))
 #' @rdname descrip-methods
 #' @aliases descrip<-,nifti-method
 #' @export

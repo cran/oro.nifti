@@ -50,6 +50,8 @@
 #' @references AFNI\cr
 #' \url{http://afni.nimh.nih.gov/pub/dist/src/README.attributes}
 #' @keywords classes
+#' @export
+#' @rdname afni-class
 #' @examples
 #' 
 #' showClass("afni")
@@ -121,8 +123,6 @@
 #'   with explicit coerce.\cr
 #'   Class \code{"\linkS4class{vector}"}, by class \dQuote{array}, distance 5,
 #'   with explicit test and coerce.
-#'   @export
-#'   @rdname afni-class
 setClass("afni", 
          representation(
            ## Mandatory attributes                 # number in R index count
@@ -312,7 +312,7 @@ setValidity("afni", function(object) {
 #' @param vol vector of brick numbers to be read from file.
 #' @param verbose is a logical variable (default = \code{FALSE}) that allows
 #' text-based feedback during execution of the function.
-#' @param warn is a number to regularegulatete the display of warnings (default
+#' @param warn is a number to regulate the display of warnings (default
 #' = -1).  See \code{options} for more details.
 #' @param call keeps track of the current function call for use in the AFNI
 #' extension.
@@ -697,9 +697,10 @@ readAFNI <- function(fname, vol=NULL, verbose=FALSE, warn=-1, call=NULL) {
 #' ## http://afni.nimh.nih.gov/pub/dist/data/afni_matlab_data.tgz
 #' afni.path <- system.file("afni", package="oro.nifti")
 #' orig <- readAFNI(file.path(afni.path, "ARzs_CW_avvr.DEL+orig"))
-#' writeAFNI(orig, "test-afni-image", verbose=TRUE)
+#' fname = file.path(tempdir(), "test-afni-image")
+#' writeAFNI(orig, fname, verbose=TRUE)
 #' 
-#' data <- readAFNI("test-afni-image", verbose=TRUE)
+#' data <- readAFNI(fname, verbose=TRUE)
 #' image(orig, zlim=c(0.5,256), oma=rep(2,4), bg="white")
 #' image(data, zlim=c(0.5,256), oma=rep(2,4), bg="white")
 #' abs.err <- abs(data - orig)

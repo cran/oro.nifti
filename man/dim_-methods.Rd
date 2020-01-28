@@ -10,6 +10,7 @@
 \alias{dim_<-}
 \alias{dim_<-,nifti-method}
 \alias{dim_<-,anlz-method}
+\alias{dim_,ANY-method}
 \title{Extract Image Attribute \code{dim_}}
 \usage{
 dim_(object)
@@ -23,6 +24,8 @@ dim_(object) <- value
 \S4method{dim_}{nifti}(object) <- value
 
 \S4method{dim_}{anlz}(object) <- value
+
+\S4method{dim_}{ANY}(object)
 }
 \arguments{
 \item{object}{is an object of class \code{nifti} or \code{anlz}.}
@@ -39,7 +42,7 @@ more details.
 }
 \references{
 ANALYZE 7.5\cr
-\url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+\url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 NIfTI-1\cr
 \url{http://nifti.nimh.nih.gov/}
 }

@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,15 +22,15 @@ setGeneric("data_type", function(object) standardGeneric("data_type"))
 #' @rdname data_type-methods
 #' @aliases data_type,nifti-method
 #' @export
-setMethod("data_type", "nifti", function(object) { object@"data_type" })
+setMethod("data_type", "nifti", function(object) object@"data_type")
 #' @rdname data_type-methods
 #' @aliases data_type,anlz-method
 #' @export
-setMethod("data_type", "anlz", function(object) { object@"data_type" })
+setMethod("data_type", "anlz", function(object) object@"data_type")
 #' @rdname data_type-methods
 #' @aliases data_type<- 
 #' @export
-setGeneric("data_type<-", function(object, value) { standardGeneric("data_type<-") })
+setGeneric("data_type<-", function(object, value) standardGeneric("data_type<-"))
 #' @rdname data_type-methods
 #' @aliases data_type<-,nifti-method
 #' @export
@@ -67,15 +67,15 @@ setGeneric("data.type", function(object) standardGeneric("data.type"))
 #' @rdname data_type-methods
 #' @aliases data.type,nifti-method
 #' @export
-setMethod("data.type", "nifti", function(object) { object@"data_type" })
+setMethod("data.type", "nifti", function(object) object@"data_type")
 #' @rdname data_type-methods
 #' @aliases data.type,anlz-method
 #' @export
-setMethod("data.type", "anlz", function(object) { object@"data_type" })
+setMethod("data.type", "anlz", function(object) object@"data_type")
 #' @rdname data_type-methods
 #' @aliases data.type<- 
 #' @export
-setGeneric("data.type<-", function(object, value) { standardGeneric("data.type<-") })
+setGeneric("data.type<-", function(object, value) standardGeneric("data.type<-"))
 #' @rdname data_type-methods
 #' @aliases data.type<-,nifti-method
 #' @export

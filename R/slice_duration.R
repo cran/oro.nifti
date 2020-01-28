@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("slice_duration", function(object) standardGeneric("slice_duration"))
 #' @rdname slice_duration-methods
 #' @aliases slice_duration,nifti-method
 #' @export
-setMethod("slice_duration", "nifti", function(object) { object@"slice_duration" })
+setMethod("slice_duration", "nifti", function(object) object@"slice_duration")
 #' @rdname slice_duration-methods
 #' @aliases slice_duration<- 
 #' @export
-setGeneric("slice_duration<-", function(object, value) { standardGeneric("slice_duration<-") })
+setGeneric("slice_duration<-", function(object, value) standardGeneric("slice_duration<-"))
 #' @rdname slice_duration-methods
 #' @aliases slice_duration<-,nifti-method
 #' @export
@@ -50,11 +50,11 @@ setGeneric("slice.duration", function(object) standardGeneric("slice.duration"))
 #' @rdname slice_duration-methods
 #' @aliases slice.duration,nifti-method
 #' @export
-setMethod("slice.duration", "nifti", function(object) { object@"slice_duration" })
+setMethod("slice.duration", "nifti", function(object) object@"slice_duration")
 #' @rdname slice_duration-methods
 #' @aliases slice.duration<- 
 #' @export
-setGeneric("slice.duration<-", function(object, value) { standardGeneric("slice.duration<-") })
+setGeneric("slice.duration<-", function(object, value) standardGeneric("slice.duration<-"))
 #' @rdname slice_duration-methods
 #' @aliases slice.duration<-,nifti-method
 #' @export

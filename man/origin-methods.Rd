@@ -5,18 +5,27 @@
 \alias{origin-methods}
 \alias{origin-methods,}
 \alias{origin}
+\alias{origin,nifti-method}
 \alias{origin,anlz-method}
+\alias{origin,ANY-method}
 \alias{origin<-}
 \alias{origin<-,anlz-method}
+\alias{origin<-,nifti-method}
 \title{Extract Image Attribute \code{origin}}
 \usage{
 origin(object)
 
+\S4method{origin}{nifti}(object)
+
 \S4method{origin}{anlz}(object)
+
+\S4method{origin}{ANY}(object)
 
 origin(object) <- value
 
 \S4method{origin}{anlz}(object) <- value
+
+\S4method{origin}{nifti}(object) <- value
 }
 \arguments{
 \item{object}{is an object of class \code{nifti} or \code{anlz}.}
@@ -31,9 +40,19 @@ NIfTI/ANALYZE header.
 See documentation on the ANALYZE and/or NIfTI data standards for
 more details.
 }
+\examples{
+fname = system.file("nifti", "mniRL.nii.gz", 
+package = "oro.nifti")
+img = readNIfTI(fname)
+oimg = origin(img)
+stopifnot(all(oimg == c(-90, -126, -72)))
+zero_img = img
+origin(zero_img) = rep(0, 3)
+stopifnot(all(origin(zero_img) == 0))
+}
 \references{
 ANALYZE 7.5\cr
-\url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+\url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 NIfTI-1\cr
 \url{http://nifti.nimh.nih.gov/}
 }

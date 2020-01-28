@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("qoffset_x", function(object) standardGeneric("qoffset_x"))
 #' @rdname qoffset_x-methods
 #' @aliases qoffset_x,nifti-method
 #' @export
-setMethod("qoffset_x", "nifti", function(object) { object@"qoffset_x" })
+setMethod("qoffset_x", "nifti", function(object) object@"qoffset_x")
 #' @rdname qoffset_x-methods
 #' @aliases qoffset_x<- 
 #' @export
-setGeneric("qoffset_x<-", function(object, value) { standardGeneric("qoffset_x<-") })
+setGeneric("qoffset_x<-", function(object, value) standardGeneric("qoffset_x<-"))
 #' @rdname qoffset_x-methods
 #' @aliases qoffset_x<-,nifti-method
 #' @export
@@ -50,11 +50,11 @@ setGeneric("qoffset.x", function(object) standardGeneric("qoffset.x"))
 #' @rdname qoffset_x-methods
 #' @aliases qoffset.x,nifti-method
 #' @export
-setMethod("qoffset.x", "nifti", function(object) { object@"qoffset_x" })
+setMethod("qoffset.x", "nifti", function(object) object@"qoffset_x")
 #' @rdname qoffset_x-methods
 #' @aliases qoffset.x<- 
 #' @export
-setGeneric("qoffset.x<-", function(object, value) { standardGeneric("qoffset.x<-") })
+setGeneric("qoffset.x<-", function(object, value) standardGeneric("qoffset.x<-"))
 #' @rdname qoffset_x-methods
 #' @aliases qoffset.x<-,nifti-method
 #' @export

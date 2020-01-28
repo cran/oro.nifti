@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,15 +22,15 @@ setGeneric("glmin", function(object) standardGeneric("glmin"))
 #' @rdname glmin-methods
 #' @aliases glmin,nifti-method
 #' @export
-setMethod("glmin", "nifti", function(object) { object@"glmin" })
+setMethod("glmin", "nifti", function(object) object@"glmin")
 #' @rdname glmin-methods
 #' @aliases glmin,anlz-method
 #' @export
-setMethod("glmin", "anlz", function(object) { object@"glmin" })
+setMethod("glmin", "anlz", function(object) object@"glmin")
 #' @rdname glmin-methods
 #' @aliases glmin<- 
 #' @export
-setGeneric("glmin<-", function(object, value) { standardGeneric("glmin<-") })
+setGeneric("glmin<-", function(object, value) standardGeneric("glmin<-"))
 #' @rdname glmin-methods
 #' @aliases glmin<-,nifti-method
 #' @export

@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,15 +22,15 @@ setGeneric("regular", function(object) standardGeneric("regular"))
 #' @rdname regular-methods
 #' @aliases regular,nifti-method
 #' @export
-setMethod("regular", "nifti", function(object) { object@"regular" })
+setMethod("regular", "nifti", function(object) object@"regular")
 #' @rdname regular-methods
 #' @aliases regular,anlz-method
 #' @export
-setMethod("regular", "anlz", function(object) { object@"regular" })
+setMethod("regular", "anlz", function(object) object@"regular")
 #' @rdname regular-methods
 #' @aliases regular<- 
 #' @export
-setGeneric("regular<-", function(object, value) { standardGeneric("regular<-") })
+setGeneric("regular<-", function(object, value) standardGeneric("regular<-"))
 #' @rdname regular-methods
 #' @aliases regular<-,nifti-method
 #' @export

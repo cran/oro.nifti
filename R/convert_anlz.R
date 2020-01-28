@@ -36,7 +36,7 @@
 #' @title Convert ANALYZE Codes
 #' 
 #' @description Codes that appear in the ANALYZE header are mapped to 
-#' meaningful chartacter strings.
+#' meaningful character strings.
 #' 
 #' @details \code{switch} statements are used to map a numeric code to the 
 #' appropriate string.
@@ -50,7 +50,7 @@
 #' @seealso \code{\link{convert.datatype}}, \code{\link{convert.bitpix}},
 #' \code{\link{convert.intent}}, \code{\link{convert.form}},
 #' \code{\link{convert.units}}, \code{\link{convert.slice}}
-#' @references ANALYZE 7.5\cr\url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}
+#' @references ANALYZE 7.5\cr\url{http://eeg.sourceforge.net/ANALYZE75.pdf}
 #' @export
 #' @rdname convert_anlz
 #' @examples

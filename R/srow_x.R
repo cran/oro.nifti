@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("srow_x", function(object) standardGeneric("srow_x"))
 #' @rdname srow_x-methods
 #' @aliases srow_x,nifti-method
 #' @export
-setMethod("srow_x", "nifti", function(object) { object@"srow_x" })
+setMethod("srow_x", "nifti", function(object) object@"srow_x")
 #' @rdname srow_x-methods
 #' @aliases srow_x<- 
 #' @export
-setGeneric("srow_x<-", function(object, value) { standardGeneric("srow_x<-") })
+setGeneric("srow_x<-", function(object, value) standardGeneric("srow_x<-"))
 #' @rdname srow_x-methods
 #' @aliases srow_x<-,nifti-method
 #' @export
@@ -50,11 +50,11 @@ setGeneric("srow.x", function(object) standardGeneric("srow.x"))
 #' @rdname srow_x-methods
 #' @aliases srow.x,nifti-method
 #' @export
-setMethod("srow.x", "nifti", function(object) { object@"srow_x" })
+setMethod("srow.x", "nifti", function(object) object@"srow_x")
 #' @rdname srow_x-methods
 #' @aliases srow.x<- 
 #' @export
-setGeneric("srow.x<-", function(object, value) { standardGeneric("srow.x<-") })
+setGeneric("srow.x<-", function(object, value) standardGeneric("srow.x<-"))
 #' @rdname srow_x-methods
 #' @aliases srow.x<-,nifti-method
 #' @export

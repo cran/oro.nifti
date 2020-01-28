@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("scl_inter", function(object) standardGeneric("scl_inter"))
 #' @rdname scl_inter-methods
 #' @aliases scl_inter,nifti-method
 #' @export
-setMethod("scl_inter", "nifti", function(object) { object@"scl_inter" })
+setMethod("scl_inter", "nifti", function(object) object@"scl_inter")
 #' @rdname scl_inter-methods
 #' @aliases scl_inter<- 
 #' @export
-setGeneric("scl_inter<-", function(object, value) { standardGeneric("scl_inter<-") })
+setGeneric("scl_inter<-", function(object, value) standardGeneric("scl_inter<-"))
 #' @rdname scl_inter-methods
 #' @aliases scl_inter<-,nifti-method
 #' @export
@@ -50,11 +50,11 @@ setGeneric("scl.inter", function(object) standardGeneric("scl.inter"))
 #' @rdname scl_inter-methods
 #' @aliases scl.inter,nifti-method
 #' @export
-setMethod("scl.inter", "nifti", function(object) { object@"scl_inter" })
+setMethod("scl.inter", "nifti", function(object) object@"scl_inter")
 #' @rdname scl_inter-methods
 #' @aliases scl.inter<- 
 #' @export
-setGeneric("scl.inter<-", function(object, value) { standardGeneric("scl.inter<-") })
+setGeneric("scl.inter<-", function(object, value) standardGeneric("scl.inter<-"))
 #' @rdname scl_inter-methods
 #' @aliases scl.inter<-,nifti-method
 #' @export

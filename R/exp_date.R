@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("exp_date", function(object) standardGeneric("exp_date"))
 #' @rdname exp_date-methods
 #' @aliases exp_date,anlz-method
 #' @export
-setMethod("exp_date", "anlz", function(object) { object@"exp_date" })
+setMethod("exp_date", "anlz", function(object) object@"exp_date")
 #' @rdname exp_date-methods
 #' @aliases exp_date<- 
 #' @export
-setGeneric("exp_date<-", function(object, value) { standardGeneric("exp_date<-") })
+setGeneric("exp_date<-", function(object, value) standardGeneric("exp_date<-"))
 #' @rdname exp_date-methods
 #' @aliases exp_date<-,anlz-method
 #' @export

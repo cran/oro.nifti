@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("slice_start", function(object) standardGeneric("slice_start"))
 #' @rdname slice_start-methods
 #' @aliases slice_start,nifti-method
 #' @export
-setMethod("slice_start", "nifti", function(object) { object@"slice_start" })
+setMethod("slice_start", "nifti", function(object) object@"slice_start")
 #' @rdname slice_start-methods
 #' @aliases slice_start<- 
 #' @export
-setGeneric("slice_start<-", function(object, value) { standardGeneric("slice_start<-") })
+setGeneric("slice_start<-", function(object, value) standardGeneric("slice_start<-"))
 #' @rdname slice_start-methods
 #' @aliases slice_start<-,nifti-method
 #' @export
@@ -50,11 +50,11 @@ setGeneric("slice.start", function(object) standardGeneric("slice.start"))
 #' @rdname slice_start-methods
 #' @aliases slice.start,nifti-method
 #' @export
-setMethod("slice.start", "nifti", function(object) { object@"slice_start" })
+setMethod("slice.start", "nifti", function(object) object@"slice_start")
 #' @rdname slice_start-methods
 #' @aliases slice.start<- 
 #' @export
-setGeneric("slice.start<-", function(object, value) { standardGeneric("slice.start<-") })
+setGeneric("slice.start<-", function(object, value) standardGeneric("slice.start<-"))
 #' @rdname slice_start-methods
 #' @aliases slice.start<-,nifti-method
 #' @export

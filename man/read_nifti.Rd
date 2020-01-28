@@ -5,8 +5,15 @@
 \alias{nifti_header}
 \title{readNIfTI}
 \usage{
-readNIfTI(fname, verbose = FALSE, warn = -1, reorient = TRUE,
-  call = NULL, read_data = TRUE)
+readNIfTI(
+  fname,
+  verbose = FALSE,
+  warn = -1,
+  reorient = TRUE,
+  call = NULL,
+  read_data = TRUE,
+  rescale_data = TRUE
+)
 
 nifti_header(fname, verbose = FALSE, warn = -1)
 }
@@ -28,6 +35,9 @@ extension.}
 \item{read_data}{Should the data be read in?  If this is FALSE,
 then an array of NAs are given instead of the true data.
 Useful if you are simply interested in the header.}
+
+\item{rescale_data}{Should the data be rescaled using the 
+slope and intercept values?  If so, slope and intercept will be reset}
 }
 \value{
 An object of class \code{nifti}.

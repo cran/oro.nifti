@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("vox_units", function(object) standardGeneric("vox_units"))
 #' @rdname vox_units-methods
 #' @aliases vox_units,anlz-method
 #' @export
-setMethod("vox_units", "anlz", function(object) { object@"vox_units" })
+setMethod("vox_units", "anlz", function(object) object@"vox_units")
 #' @rdname vox_units-methods
 #' @aliases vox_units<- 
 #' @export
-setGeneric("vox_units<-", function(object, value) { standardGeneric("vox_units<-") })
+setGeneric("vox_units<-", function(object, value) standardGeneric("vox_units<-"))
 #' @rdname vox_units-methods
 #' @aliases vox_units<-,anlz-method
 #' @export
@@ -47,11 +47,11 @@ setGeneric("vox.units", function(object) standardGeneric("vox.units"))
 #' @rdname vox_units-methods
 #' @aliases vox.units,anlz-method
 #' @export
-setMethod("vox.units", "anlz", function(object) { object@"vox_units" })
+setMethod("vox.units", "anlz", function(object) object@"vox_units")
 #' @rdname vox_units-methods
 #' @aliases vox.units<- 
 #' @export
-setGeneric("vox.units<-", function(object, value) { standardGeneric("vox.units<-") })
+setGeneric("vox.units<-", function(object, value) standardGeneric("vox.units<-"))
 #' @rdname vox_units-methods
 #' @aliases vox.units<-,anlz-method
 #' @export

@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,11 +22,11 @@ setGeneric("omax", function(object) standardGeneric("omax"))
 #' @rdname omax-methods
 #' @aliases omax,anlz-method
 #' @export
-setMethod("omax", "anlz", function(object) { object@"omax" })
+setMethod("omax", "anlz", function(object) object@"omax")
 #' @rdname omax-methods
 #' @aliases omax<- 
 #' @export
-setGeneric("omax<-", function(object, value) { standardGeneric("omax<-") })
+setGeneric("omax<-", function(object, value) standardGeneric("omax<-"))
 #' @rdname omax-methods
 #' @aliases omax<-,anlz-method
 #' @export

@@ -13,7 +13,7 @@
 #' Brandon Whitcher \email{bwhitcher@@gmail.com}
 #' @references
 #' ANALYZE 7.5\cr
-#' \url{https://rportal.mayo.edu/bir/ANALYZE75.pdf}\cr
+#' \url{http://eeg.sourceforge.net/ANALYZE75.pdf}\cr
 #' NIfTI-1\cr
 #' \url{http://nifti.nimh.nih.gov/}
 #'
@@ -22,15 +22,15 @@ setGeneric("bitpix", function(object) standardGeneric("bitpix"))
 #' @rdname bitpix-methods
 #' @aliases bitpix,nifti-method
 #' @export
-setMethod("bitpix", "nifti", function(object) { object@"bitpix" })
+setMethod("bitpix", "nifti", function(object) object@"bitpix")
 #' @rdname bitpix-methods
 #' @aliases bitpix,anlz-method
 #' @export
-setMethod("bitpix", "anlz", function(object) { object@"bitpix" })
+setMethod("bitpix", "anlz", function(object) object@"bitpix")
 #' @rdname bitpix-methods
 #' @aliases bitpix<- 
 #' @export
-setGeneric("bitpix<-", function(object, value) { standardGeneric("bitpix<-") })
+setGeneric("bitpix<-", function(object, value) standardGeneric("bitpix<-"))
 #' @rdname bitpix-methods
 #' @aliases bitpix<-,nifti-method
 #' @export
