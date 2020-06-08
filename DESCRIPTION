@@ -1,5 +1,5 @@
 Package: oro.nifti
-Version: 0.10.1
+Version: 0.10.3
 Title: Rigorous - 'NIfTI' + 'ANALYZE' + 'AFNI' : Input / Output
 Authors@R: 
     c(person(given = "Brandon",
@@ -32,8 +32,8 @@ Description: Functions for the input/output and visualization of
 Depends: R (>= 2.14.0)
 Suggests: XML, testthat, covr, knitr, rmarkdown
 Imports: stats, bitops, splines, graphics, grDevices, methods, utils,
-        abind, RNifti (>= 0.9.0)
-Enhances: dcemriS4, fmri, oro.dicom
+        abind, RNifti (>= 0.9.0), rticles
+Enhances: fmri, oro.dicom
 License: BSD_3_clause + file LICENSE
 BugReports: https://github.com/bjw34032/oro.nifti/issues
 URL: http://rig.oro.us.com, http://rigorousanalytics.blogspot.com
@@ -64,10 +64,10 @@ Collate: 'auditTrail.R' 'niftiS4.R' 'analyzeS4.R' 'afniS4.R' 'is.R'
         'scannum.R' 'smax.R' 'smin.R' 'start_field.R' 'unused1.R'
         'verified.R' 'views.R' 'vols_added.R' 'vox_units.R' 'voxres.R'
         'img_length.R' 'zzz.R' 'zzz_niftiImage.R'
-RoxygenNote: 7.0.1
+RoxygenNote: 7.1.0
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2020-01-24 18:58:03 UTC; johnmuschelli
+Packaged: 2020-06-08 13:35:33 UTC; brandon
 Author: Brandon Whitcher [aut, cre],
   Volker Schmid [aut],
   Andrew Thornton [aut],
@@ -76,4 +76,4 @@ Author: Brandon Whitcher [aut, cre],
   John Muschelli [aut]
 Maintainer: Brandon Whitcher <bwhitcher@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-01-28 21:20:08 UTC
+Date/Publication: 2020-06-08 14:10:02 UTC
