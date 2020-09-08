@@ -1,7 +1,7 @@
-fa1c4dc07c934b30a33c762bbee567e8 *DESCRIPTION
+243f3aa4726cc26e0848b9a297ebe544 *DESCRIPTION
 2523fa317c0d02a14866f358ea8af26f *LICENSE
 330bf70752b749a6aabca483f11bf762 *NAMESPACE
-2d0e455fa39ef5a4914f66d78833e63c *NEWS.md
+b9c45374003ee5c972d568fd88f28f25 *NEWS.md
 898e503268510056fb55617a63b3f63a *R/Operators.R
 690e9638a7b1f62277a59b5883551dd1 *R/afniS4.R
 b20f4626ce502392d4302ec5578d9df1 *R/analyzeS4.R
@@ -104,7 +104,7 @@ c120de84ecb054a08c9d44ff6d6ae774 *R/views.R
 730c0d5735271f95d151540fda1d54f8 *R/voxdim.R
 e5b0a7cb7f0e1b090256e544e5d4efa3 *R/voxres.R
 2895c68ac6190acfd5bb57c33cae68fe *R/wrappers.R
-2e4ff612226e89702f64eca1f70255f1 *R/writeS4.R
+6a99a3364ff3e6d1f904247a77d7f821 *R/writeS4.R
 ec29b656f290678678a85be3e1f4b315 *R/xyzt_units.R
 aee5365f71093a4a4658092671434f57 *R/zero_trans.R
 f79dfa7b229fa8c39839aa3620077a8e *R/zzz.R
@@ -114,7 +114,7 @@ f410d9ab7af1d7f515e1eff87e6b8bdf *demo/avg152T1.R
 c0cebf44d8cd5f4512871cb32bc50bec *demo/avg152T1LR.R
 a271181159496d1a8074b25922d32917 *demo/avg152T1RL.R
 f3dbd3b1f0aa3d186d9b6532ebee93d2 *demo/filtered_func_data.R
-59a3b7f943d36cc4b841e3267717817e *inst/CITATION
+d841b1ad61670436471563217ffd1776 *inst/CITATION
 a20d690f982f0f1127a04dccefe665e7 *inst/afni/ARzs_CW_avvr.DEL+orig.BRIK
 c5082ba99825809e380047a7f563d570 *inst/afni/ARzs_CW_avvr.DEL+orig.HEAD
 fd2fe62d3d82d65d7228e2d87ccf8e20 *inst/afni/TT_N27_EZ_LR+tlrc.BRIK.gz
@@ -248,8 +248,8 @@ e355be8c6f9d2180d90481e62167322b *man/vox_units-methods.Rd
 239ab72a041e4b5cecf6e4b850c3adb5 *man/voxdim.Rd
 e4ed134d68f5b011f8318a06bbb9e54b *man/voxres.Rd
 32f0b6240aafc9c28f94c1b67693fad0 *man/write_afni-methods.Rd
-1e2ce65d8f552d6cab5ebb5fa2d892af *man/write_anlz.Rd
-8ff71acb4a2b6298fd3c80f943f1c183 *man/write_nifti.Rd
+8ca11d52237f2ff1ff8632db06d29a2c *man/write_anlz.Rd
+21142cfe3104ebc897e8e73f53c253ef *man/write_nifti.Rd
 7ffa94cc37a751831b55274da71151dc *man/xyzt_units-methods.Rd
 3e282208783c23e6cb354758e176f6cb *man/zero_trans.Rd
 3d481709609dcef20fb1fef491bb2066 *tests/testthat.R
