@@ -1,5 +1,5 @@
 Package: oro.nifti
-Version: 0.11.0
+Version: 0.11.1
 Title: Rigorous - 'NIfTI' + 'ANALYZE' + 'AFNI' : Input / Output
 Authors@R: 
     c(person(given = "Brandon",
@@ -36,9 +36,7 @@ Imports: stats, bitops, splines, graphics, grDevices, methods, utils,
 Enhances: fmri, oro.dicom
 License: BSD_3_clause + file LICENSE
 BugReports: https://github.com/bjw34032/oro.nifti/issues
-URL: http://rig.oro.us.com, http://rigorousanalytics.blogspot.com
-LazyData: true
-LazyDataCompression: gzip
+URL: https://rigorousanalytics.blogspot.com
 Collate: 'auditTrail.R' 'niftiS4.R' 'analyzeS4.R' 'afniS4.R' 'is.R'
         'nifti_assign.R' 'coerce.R' 'writeS4.R' 'convert_anlz.R'
         'convert_nifti.R' 'cal_img.R' 'drop_img_dim.R' 'hotmetal.R'
@@ -67,7 +65,7 @@ Collate: 'auditTrail.R' 'niftiS4.R' 'analyzeS4.R' 'afniS4.R' 'is.R'
 RoxygenNote: 7.1.1
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2020-09-07 16:02:13 UTC; johnmuschelli
+Packaged: 2022-05-13 15:43:20 UTC; johnmuschelli
 Author: Brandon Whitcher [aut, cre],
   Volker Schmid [aut],
   Andrew Thornton [aut],
@@ -76,4 +74,4 @@ Author: Brandon Whitcher [aut, cre],
   John Muschelli [aut]
 Maintainer: Brandon Whitcher <bwhitcher@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-09-08 13:10:10 UTC
+Date/Publication: 2022-05-14 23:40:02 UTC
