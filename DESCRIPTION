@@ -1,5 +1,5 @@
 Package: oro.nifti
-Version: 0.11.1
+Version: 0.11.2
 Title: Rigorous - 'NIfTI' + 'ANALYZE' + 'AFNI' : Input / Output
 Authors@R: 
     c(person(given = "Brandon",
@@ -62,10 +62,10 @@ Collate: 'auditTrail.R' 'niftiS4.R' 'analyzeS4.R' 'afniS4.R' 'is.R'
         'scannum.R' 'smax.R' 'smin.R' 'start_field.R' 'unused1.R'
         'verified.R' 'views.R' 'vols_added.R' 'vox_units.R' 'voxres.R'
         'img_length.R' 'zzz.R' 'zzz_niftiImage.R'
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2022-05-13 15:43:20 UTC; johnmuschelli
+Packaged: 2022-06-10 02:20:10 UTC; johnmuschelli
 Author: Brandon Whitcher [aut, cre],
   Volker Schmid [aut],
   Andrew Thornton [aut],
@@ -74,4 +74,4 @@ Author: Brandon Whitcher [aut, cre],
   John Muschelli [aut]
 Maintainer: Brandon Whitcher <bwhitcher@gmail.com>
 Repository: CRAN
-Date/Publication: 2022-05-14 23:40:02 UTC
+Date/Publication: 2022-06-10 12:00:06 UTC
