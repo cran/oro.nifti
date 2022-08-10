@@ -1,7 +1,7 @@
-7d070e257c3b3cdf811c18ec17c79a46 *DESCRIPTION
+6f4107fbc63789335953eed91151275c *DESCRIPTION
 2523fa317c0d02a14866f358ea8af26f *LICENSE
 330bf70752b749a6aabca483f11bf762 *NAMESPACE
-d8c6860e481caabadb4d286abef8e7a8 *NEWS.md
+a5b4082914fc07134a6ee7bb1f3e08b0 *NEWS.md
 898e503268510056fb55617a63b3f63a *R/Operators.R
 690e9638a7b1f62277a59b5883551dd1 *R/afniS4.R
 b20f4626ce502392d4302ec5578d9df1 *R/analyzeS4.R
@@ -62,7 +62,7 @@ adc684236a4d2a88386feecd2128b217 *R/origin.R
 f2531a69d61e19dfabb1896108bb2734 *R/oro2nii.R
 2d7aeca4eeafa7c0410daabdfac92d90 *R/patient_id.R
 cce866c3aeaa7de8dc80edc090ffb880 *R/pixdim.R
-7634b9a529175c076b782b56db66f1f8 *R/plot.R
+accf5fa2468f70d1a0dfadcfe5acbd56 *R/plot.R
 4584ff3e5ffccd8ebe5190210bc20432 *R/qform_code.R
 848adee831565d5478b269f083a646df *R/qoffset_x.R
 c03b1766562072cc57fc9e28505a08db *R/qoffset_y.R
@@ -199,7 +199,7 @@ e0b7261a6da0fac752620a16ed45527a *man/onefile.Rd
 45db0488ca3b197f7bd6cdc5b0d6384c *man/orientation-methods.Rd
 c028e4d6d80a57467f52ec2efc2f3298 *man/origin-methods.Rd
 ca0a11e5790bcbcaacad44197817c6ba *man/oro2nii.Rd
-eaa76fb818a42ce55617477df81f0802 *man/orthographic-methods.Rd
+cf07817ecdecd78ac95ae368ac6237b4 *man/orthographic-methods.Rd
 b0ad2ce4b2d4c32f5c2d67e3101a4347 *man/overlay-methods.Rd
 2355b343a4bdadcc07df14ce43bf77db *man/patient_id-methods.Rd
 76432bd62de607590ac69f9dc5ed11d6 *man/performPermutation.Rd
@@ -253,6 +253,7 @@ e4ed134d68f5b011f8318a06bbb9e54b *man/voxres.Rd
 7ffa94cc37a751831b55274da71151dc *man/xyzt_units-methods.Rd
 3e282208783c23e6cb354758e176f6cb *man/zero_trans.Rd
 3d481709609dcef20fb1fef491bb2066 *tests/testthat.R
+df09f415b477f8d8d1199b05a1ed57eb *tests/testthat/test-plotting.R
 5f1018348a49894507f49a858cdf1d13 *tests/testthat/test_anlz.R
 c9ee93f5e6df6ee5725ab8d49efc73d1 *tests/testthat/test_nifti.R
 1faa1c5a3c0f866025ec7e60ad537508 *tests/testthat/test_nii2oro.R
